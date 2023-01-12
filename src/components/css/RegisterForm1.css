@@ -1,0 +1,334 @@
+/* Import Font */
+
+@font-face {
+    font-family: 'SFCompact';
+    src: url(../../font/SF-Compact-Rounded-Regular.ttf);
+    font-style: normal;
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'SFCompactMed';
+    src: url(../../font/SF-Compact-Rounded-Medium.ttf);
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'SFCompactSemi';
+    src: url(../../font/SF-Compact-Rounded-Semibold.ttf);
+    font-size: normal;
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'SFCompactBold';
+    src: url(../../font/SF-Compact-Rounded-Bold.ttf);
+    font-style: normal;
+    font-weight: 700;
+}
+
+:root {
+    --light-green: #B8D6DC;
+    --green: #5FC7AC;
+    --light-gray: #EFF1F4;
+    --gray: #8A8787;
+}
+
+* {
+    font-family: SFCompact;
+}
+
+#root {
+    height: 1024px;
+}
+
+.container {
+    height: 100%;
+    margin: 0 auto;
+}
+
+.container-con {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.col-lg-5 {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 10vh;
+}
+
+@media screen and (max-width: 1800px) {
+    body {
+        overflow: hidden;
+    }
+    .col-lg-5 {
+        margin-top: 20px;
+    }
+}
+
+p {
+    font-family: SFCompactBold;
+    font-size: clamp(24px, 2.5vw, 32px);
+    text-align: center;
+}
+
+.form-group {
+    height: 81px;
+    border-radius: 8px;
+    background-color: var(--light-green);
+}
+
+.form-group:hover {
+    background-color: var(--green);
+    transition: 0.5s ease-in-out;
+}
+
+.form-group a:hover {
+    color: #fff;
+    transition: 0.2s ease-in-out;
+}
+
+.form-group a {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.icon-img {
+    margin-right: 20px;
+    background-color: #ffff;
+    border-radius: 100%;
+    border: 3px solid #fff;
+}
+
+.icon-img svg {
+    font-size: 30px;
+}
+
+.form-group span {
+    display: grid;
+    font-size: clamp(16px, 2.5vw, 20px);
+    font-family: SFCompactSemi;
+    height: 50px;
+    align-items: center;
+}
+
+.alternative {
+    display: flex;
+    align-items: center;
+}
+
+.alternative span {
+    margin: 20px 20px;
+    font-family: SFCompactSemi;
+    font-size: clamp(18px, 2.5vw, 20px);
+    color: #CFD3D7
+}
+
+.line {
+    height: 0;
+    width: calc(100% - 55%);
+    border: 2px solid #CFD3D7;
+    opacity: 0.6;
+    border-radius: 2px;
+}
+
+.input {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+input {
+    width: 100%;
+    height: 70px;
+    background-color: var(--light-gray);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+input[type="email"] {
+    font-family: SFCompactSemi;
+    font-size: clamp(16px, 2.5vw, 18px);
+}
+
+input[type="password"] {
+    font-family: SFCompactSemi;
+    font-size: clamp(16px, 2.5vw, 18px);
+}
+
+input::placeholder {
+    font-family: SFCompactSemi;
+    color: #8A8787;
+}
+
+
+/*8ad5c8*/
+
+input:focus {
+    background-color: #DCEBEE;
+    outline: none;
+}
+
+input:required:valid {
+    background-color: #a9e6d9;
+}
+
+input:required:invalid:not(:placeholder-shown) {
+    background-color: rgba(248, 187, 187, 0.867)
+}
+
+.submit {
+    border: none;
+    display: flex;
+    height: 70px;
+    background-color: var(--green);
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.submit span {
+    font-family: SFCompactSemi;
+    font-size: clamp(16px, 2.5vw, 20px);
+    color: #fff;
+}
+
+.submit:hover {
+    box-shadow: 0px 11px 5px -3px rgba(67, 194, 106, 0.18);
+    transition: 0.2s ease-out;
+}
+
+.error {
+    display: none;
+    justify-content: center;
+    background-color: #FBEBEB;
+    border-radius: 5px;
+    border: 2px solid #FF0000;
+    margin-bottom: 10px;
+}
+
+.error span {
+    align-self: center;
+    margin: 20px 20px;
+    font-family: SFCompactSemi;
+    font-size: clamp(18px, 0.2vw, 20px);
+    color: #dd4949;
+}
+
+.account {
+    text-align: center;
+    text-decoration: line;
+    text-decoration-color: #079569;
+    color: #079569;
+    font-family: SFCompactSemi;
+    margin-top: 2.5vh;
+    font-size: clamp(14px, 2.5vw, 18px);
+}
+
+.check {
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+    margin-left: -22px;
+    background-color: #83cab4;
+}
+
+.createAccount {
+    text-align: left;
+    color: #079569;
+    font-family: SFCompactSemi;
+    margin-top: 2.5vh;
+    font-size: clamp(14px, 2.5vw, 18px);
+}
+
+.createAccount:hover {
+    color: #83cab4;
+    text-decoration: none;
+}
+
+.register {
+    display: inline;
+    justify-content: flex-start;
+}
+
+.normalText {
+    text-align: left;
+    text-decoration: none;
+    color: black;
+    margin-top: 0.7vh;
+    font-family: SFCompactSemi;
+    font-size: clamp(14px, 2.5vw, 18px);
+}
+
+.normalText:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+.forgotText {
+    text-align: right;
+    color: #079569;
+    font-family: SFCompactSemi;
+    margin-top: 1vh;
+    font-size: clamp(14px, 2.5vw, 18px);
+}
+
+.forgotText:hover {
+    color: #83cab4;
+    text-decoration: none;
+}
+
+.account:hover {
+    color: #079569;
+    text-decoration: none;
+}
+
+.about {
+    text-align: center;
+    font-family: SFCompactSemi;
+    font-size: clamp(12px, 2.5vw, 15px);
+    color: rgba(154, 154, 154, 0.867);
+    width: 96%;
+    margin-top: 1.3vh;
+}
+
+.form-check {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.navBar {
+    height: 64px;
+}
+
+.col-lg-5 .form:hover .tool{
+    display: flex;
+}
+
+.tool{
+    font-family: SFCompactBold;
+    font-size: 14px !important;
+    padding: 10px;
+    position:absolute;
+    width: auto;
+    border-radius: 10px 10px 10px 0px;
+    background-color: var(--green);
+    color: #fff;
+    margin-top: -10px;
+    transform-style: preserve-3d;
+    z-index: 200;
+    font-size: 0.9rem;
+    margin-left: 6rem;
+    display: none;
+}

@@ -1,0 +1,190 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+*,::before,::after{
+    box-sizing: border-box !important;
+}
+
+
+#root{
+    height: auto;
+}
+
+.containerH{
+    background-color: #F8F6F2;
+}
+
+.History_title{
+    display: flex;
+    align-items: center;
+    padding-top: 61px;
+
+}
+
+.History_title .title{
+    width: 100%;
+    text-align: center;
+}
+
+.History_title .title span{
+    font-family: SFCompactBold;
+    font-size: 32px;
+}
+
+.itemList{
+    padding-bottom: 50px;
+}
+
+.list{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.content_list{
+    width: 554px;
+    background-color: #fff;
+    padding: 30px;
+    margin-top: 59px;
+    border-radius: 15px;
+    box-shadow: 5px 4px 50px rgba(0,0,0,.1);
+}
+
+.order_code span{
+    font-family: SFCompactBold;
+    font-size: 20px;
+}
+
+.content_list #line{
+    height: 0;
+    border: 1px solid #EDEDED;
+    border-radius: 2px;
+    margin-top: 20px;
+}
+
+.content_list .date{
+    margin-top: 13px;
+    display: flex;
+    justify-content: flex-end;
+    font-family: SFCompactSemi;
+    font-size: 16px;
+}
+
+.order_img img{
+    width: 80px;
+    border: 3px solid #EDEDED;
+    border-radius: 10px;
+}
+
+.order_img {
+    position: relative;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+}
+
+.order_img .ea{
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 30px;
+    height: 30px;
+    background-color: #ffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    border-radius: 50%;
+    border: 3px solid #EDEDED;
+    font-family: SFCompactBold;
+    font-size: 16px;
+}
+
+.order_set{
+    margin: 20px 0px;
+    display: flex;
+    align-items: center;
+}
+
+.item{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+}
+
+.item_name{
+    font-family: SFCompactBold;
+    font-size: 16px;
+}
+
+.description_item{
+    font-family: SFCompactMed;
+    font-size: 16px;
+    color: #B8B8B8;
+}
+
+.order_set .price{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.price span{
+    font-family: SFCompactBold;
+    font-size: 16px;
+}
+
+.sub, .sub span{
+    display: flex;
+    width: 100%;
+}
+
+.sub{
+    margin: 20px 0px;
+}
+
+.sub span:first-child, .vat span:first-child{
+    font-family: SFCompactMed;
+    color: #9A9A9A;
+    font-size: 16px;
+}
+
+.sub_value{
+    justify-content: flex-end;
+    font-family: SFCompactBold;
+    font-size: 16px;
+}
+
+.vat, .vat span{
+    display: flex;
+    width: 100%
+}
+
+.vat_value{
+    justify-content: flex-end;
+    font-family: SFCompactBold;
+    font-size: 16px;
+}
+
+.total{
+    margin-top: 20px;
+}
+
+.total, .total span{
+    width: 100%;
+    display: flex;
+}
+
+.total span:first-child{
+    font-family: SFCompactBold;
+    font-size: 18px;
+}
+
+.total_value{
+    font-family: SFCompactBold;
+    font-size: 20px;
+    justify-content: flex-end;
+}
