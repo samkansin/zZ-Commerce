@@ -1,9 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { CssBaseline } from '@material-ui/core';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { AuthProvider } from './components/Auth';
-import { Navbar, Products, Cart, CheckOut, RegisterForm1, RegisterForm2, Addresscheckout, SignIn, ForgotPassword, SendEmail, CheckOutHistory } from './components';
-import { commerce } from './lib/commerce';
+import React, { useState, useEffect } from "react";
+import { CssBaseline } from "@material-ui/core";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { AuthProvider } from "./components/Auth";
+import {
+  Navbar,
+  Products,
+  Cart,
+  CheckOut,
+  RegisterForm1,
+  RegisterForm2,
+  Addresscheckout,
+  SignIn,
+  ForgotPassword,
+  SendEmail,
+  CheckOutHistory,
+} from "./components";
+import { commerce } from "./lib/commerce";
 
 const App = () => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -75,18 +87,33 @@ const App = () => {
             <RegisterForm2 />
           </Route>
           <Route exact path="/shop">
-            <Navbar totalItems={cart.total_items} handleDrawerToggle={handleDrawerToggle} />
+            <Navbar
+              totalItems={cart.total_items}
+              handleDrawerToggle={handleDrawerToggle}
+            />
             <Products products={products} onAddToCart={handleAddToCart} />
           </Route>
           <Route exact path="/cart">
-            <Navbar totalItems={cart.total_items} handleDrawerToggle={handleDrawerToggle} />
-            <Cart cart={cart} onUpdateCartQty={handleUpdateCartQty} onRemoveFromCart={handleRemoveFromCart} onEmptyCart={handleEmptyCart} />
+            <Navbar
+              totalItems={cart.total_items}
+              handleDrawerToggle={handleDrawerToggle}
+            />
+            <Cart
+              cart={cart}
+              onUpdateCartQty={handleUpdateCartQty}
+              onRemoveFromCart={handleRemoveFromCart}
+              onEmptyCart={handleEmptyCart}
+            />
           </Route>
           <Route exact path="/checkout">
             <CheckOut cart={cart} />
           </Route>
           <Route exact path="/address">
-            <Addresscheckout refreshCart={refreshCart} cart={cart} products={products} />
+            <Addresscheckout
+              refreshCart={refreshCart}
+              cart={cart}
+              products={products}
+            />
           </Route>
           <Route exact path="/sendemail">
             <SendEmail />

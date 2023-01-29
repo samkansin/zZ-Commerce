@@ -1,15 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { AppBar, Toolbar, IconButton, Badge, MenuItem, Menu, Typography } from '@material-ui/core';
-import { ShoppingCart } from '@material-ui/icons';
-import { Link, useLocation, useHistory } from 'react-router-dom';
-import { Avatar, Box, Divider, Tooltip } from '@material-ui/core';
+import React, { useState, useEffect } from "react";
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Badge,
+  MenuItem,
+  Menu,
+  Typography,
+} from "@material-ui/core";
+import { ShoppingCart } from "@material-ui/icons";
+import { Link, useLocation, useHistory } from "react-router-dom";
+import { Avatar, Box, Divider, Tooltip } from "@material-ui/core";
 
-import logo from '../../assets/commerce.png';
-import Uicon from '../../assets/user.png';
-import useStyles from './styles';
+import logo from "../../assets/commerce.png";
+import Uicon from "../../assets/user.png";
+import useStyles from "./styles";
 import { getAuth, signOut } from "firebase/auth";
 import { getDatabase, ref, set, child, get } from "firebase/database";
-import '../css/navbar.css';
+import "../css/navbar.css";
 
 const PrimarySearchAppBar = ({ totalItems }) => {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
@@ -22,41 +30,58 @@ const PrimarySearchAppBar = ({ totalItems }) => {
 
   const handleMobileMenuClose = () => setMobileMoreAnchorEl(null);
 
-  const mobileMenuId = 'primary-search-account-menu-mobile';
+  const mobileMenuId = "primary-search-account-menu-mobile";
 
   const logOut = () => {
     const auth = getAuth();
-    signOut(auth).then(() => {
-      console.log("sign out success");
-    }).catch((error) => {
-      // An error happened.
-      console.log(error);
-    });
+    signOut(auth)
+      .then(() => {
+        console.log("sign out success");
+      })
+      .catch((error) => {
+        // An error happened.
+        console.log(error);
+      });
     // Go to sign up page
-    history.push('/signin');
-  }
+    history.push("/signin");
+  };
 
   useEffect(() => {
     const db = getDatabase();
     const auth = getAuth();
     const user = auth.currentUser;
     const uid = user.uid;
-    
-    get(child(ref(db), `personalInfo/${uid}`)).then((snapshot) => {
-      if (snapshot.exists()) {
-        setUserName(snapshot.val().displayName);
-      } else {alert(uid);
 
-      }
-    }).catch((error) => {
-      console.error(error);
-    });
-}, []);
+    get(child(ref(db), `personalInfo/${uid}`))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          setUserName(snapshot.val().displayName);
+        } else {
+          alert(uid);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
   const renderMobileMenu = (
-    <Menu anchorEl={mobileMoreAnchorEl} anchorOrigin={{ vertical: 'top', horizontal: 'right' }} id={mobileMenuId} keepMounted transformOrigin={{ vertical: 'top', horizontal: 'right' }} open={isMobileMenuOpen} onClose={handleMobileMenuClose}>
+    <Menu
+      anchorEl={mobileMoreAnchorEl}
+      anchorOrigin={{ vertical: "top", horizontal: "right" }}
+      id={mobileMenuId}
+      keepMounted
+      transformOrigin={{ vertical: "top", horizontal: "right" }}
+      open={isMobileMenuOpen}
+      onClose={handleMobileMenuClose}
+    >
       <MenuItem>
-        <IconButton component={Link} to="/cart" aria-label="Show cart items" color="inherit">
+        <IconButton
+          component={Link}
+          to="/cart"
+          aria-label="Show cart items"
+          color="inherit"
+        >
           <Badge badgeContent={totalItems} color="secondary">
             <ShoppingCart />
           </Badge>
@@ -79,32 +104,53 @@ const PrimarySearchAppBar = ({ totalItems }) => {
     <>
       <AppBar position="fixed" className={classes.appBar} color="inherit">
         <Toolbar>
-          <Typography component={Link} to="/shop" variant="h6" className={classes.title} color="inherit">
-            <img src={logo} alt="zZ-Commerce" height="25px" className={classes.image} /> zZ-Commerce
+          <Typography
+            component={Link}
+            to="/shop"
+            variant="h6"
+            className={classes.title}
+            color="inherit"
+          >
+            <img
+              src={logo}
+              alt="zZ-Commerce"
+              height="25px"
+              className={classes.image}
+            />{" "}
+            zZ-Commerce
           </Typography>
           <div className={classes.grow} />
-          
-          {location.pathname === '/shop' && (
-          <div className={classes.button}>
-            <IconButton component={Link} to="/cart" aria-label="Show cart items" color="inherit">
-              <Badge badgeContent={totalItems} color="secondary">
-                <ShoppingCart />
-              </Badge>
-            </IconButton>
-          </div>
+
+          {location.pathname === "/shop" && (
+            <div className={classes.button}>
+              <IconButton
+                component={Link}
+                to="/cart"
+                aria-label="Show cart items"
+                color="inherit"
+              >
+                <Badge badgeContent={totalItems} color="secondary">
+                  <ShoppingCart />
+                </Badge>
+              </IconButton>
+            </div>
           )}
-          
-          <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
+
+          <Box
+            sx={{ display: "flex", alignItems: "center", textAlign: "center" }}
+          >
             <Tooltip title="Account settings">
               <IconButton
                 onClick={handleClick}
                 size="small"
                 sx={{ ml: 2 }}
-                aria-controls={open ? 'account-menu' : undefined}
+                aria-controls={open ? "account-menu" : undefined}
                 aria-haspopup="true"
-                aria-expanded={open ? 'true' : undefined}
+                aria-expanded={open ? "true" : undefined}
               >
-                <Avatar sx={{ width: 32, height: 32 }}><img src={Uicon} height='20px'/></Avatar>
+                <Avatar sx={{ width: 32, height: 32 }}>
+                  <img alt="" src={Uicon} height="20px" />
+                </Avatar>
               </IconButton>
             </Tooltip>
           </Box>
@@ -116,15 +162,12 @@ const PrimarySearchAppBar = ({ totalItems }) => {
             onClose={handleClose}
             onClick={handleClose}
           >
-            
-            <div className='name'>user name : {userName}</div>
-            <Divider component="li" sx={{borderBottomWidth: 4}}/>
-            <MenuItem component={Link} to='/checkouthistory'>
+            <div className="name">user name : {userName}</div>
+            <Divider component="li" sx={{ borderBottomWidth: 4 }} />
+            <MenuItem component={Link} to="/checkouthistory">
               Checkout History
             </MenuItem>
-            <MenuItem onClick={logOut}>
-              Logout
-            </MenuItem>
+            <MenuItem onClick={logOut}>Logout</MenuItem>
           </Menu>
         </Toolbar>
       </AppBar>
