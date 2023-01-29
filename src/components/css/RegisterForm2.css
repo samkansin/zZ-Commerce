@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @font-face {
     font-family: 'SFCompact';
     src: url(../../font/SF-Compact-Rounded-Regular.ttf);
@@ -23,6 +24,8 @@
     font-weight: 700;
 }
 
+=======
+>>>>>>> 882f42d (Update CSS and HTML)
 :root{
     --light-green: #B8D6DC;
     --green: #5FC7AC;
@@ -36,6 +39,7 @@
     font-family: SFCompactSemi;
 }
 
+<<<<<<< HEAD
 #root{
     height: max-content;
 }
@@ -52,11 +56,16 @@
 
 
 
+=======
+>>>>>>> 882f42d (Update CSS and HTML)
 .p{
     font-family: SFCompactMed;
     font-size: clamp(20px, 2.5vw, 24px);
     color: #575757;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 882f42d (Update CSS and HTML)
 }
 
 .progress-container{
@@ -64,8 +73,13 @@
     justify-content: space-between;
     position: relative;
     margin-bottom: 30px;
+<<<<<<< HEAD
     max-width: 100%;
     width: 400px;
+=======
+    max-width: 400px;
+    width: 100%;
+>>>>>>> 882f42d (Update CSS and HTML)
     margin: 0 auto;
 }
 
@@ -118,7 +132,10 @@
 }
 
 .btn-set{
+<<<<<<< HEAD
     margin-top: 60px;
+=======
+>>>>>>> 882f42d (Update CSS and HTML)
     display: flex;
     justify-content: center;
     transition: all 0.6s ease-in-out;
@@ -126,6 +143,10 @@
 
 .wrap{
     margin: 3%;
+<<<<<<< HEAD
+=======
+    flex-grow: 1;
+>>>>>>> 882f42d (Update CSS and HTML)
 }
 
 .btn{
@@ -156,12 +177,21 @@
     cursor: not-allowed; 
 }
 
+<<<<<<< HEAD
 select{
+=======
+#gender, #province, #sub_district, #district{
+>>>>>>> 882f42d (Update CSS and HTML)
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     background: url("data:image/svg+xml;utf8,<svg stroke='currentColor' fill='currentColor' stroke-width='0' viewBox='0 0 512 512' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'><path d='M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z'></path></svg>") no-repeat;
+<<<<<<< HEAD
     background-position: right 5px top 50%;
+=======
+    background-position: right 15px top 50%;
+    outline: none;
+>>>>>>> 882f42d (Update CSS and HTML)
 }
 
 .header{
@@ -174,7 +204,11 @@ select{
 
 .head{
     font-family: SFCompactSemi;
+<<<<<<< HEAD
     font-size: clamp(30px, 2.5vw, 40px);
+=======
+    font-size: clamp(20px, 6vw, 40px);
+>>>>>>> 882f42d (Update CSS and HTML)
     margin-bottom: 10px;
 }
 
@@ -189,9 +223,16 @@ select{
     text-align: center;
     text-decoration: none;
     font-family: SFCompactSemi;
+<<<<<<< HEAD
     font-size: clamp(14px, 2.5vw, 16px);
     color: var(--gray);
     opacity: 0.62;
+=======
+    font-size: clamp(16px, 2.5vw, 18px);
+    color: var(--gray);
+    opacity: 0.62;
+    cursor: pointer;
+>>>>>>> 882f42d (Update CSS and HTML)
 }
 
 .skip-hidden {
@@ -203,6 +244,7 @@ select{
     transform: scale(0.9);
 }
 
+<<<<<<< HEAD
 input, .form-control{
     background-color: var(--light-gray) !important;
     border: 0 !important;
@@ -222,6 +264,11 @@ input::placeholder{
 
 .page1 {
     height: 560px;
+=======
+.page1 {
+    height: 560px;
+    margin-bottom: 60px;
+>>>>>>> 882f42d (Update CSS and HTML)
     justify-content: space-between;
     transition: all 0.6s ease-in-out;
 }
@@ -259,6 +306,13 @@ input::placeholder{
 
 .form-control{
     height: 70px;
+<<<<<<< HEAD
+=======
+    /* color: var(--gray) !important; */
+}
+
+#gender:not([class="selected"]){
+>>>>>>> 882f42d (Update CSS and HTML)
     color: var(--gray) !important;
 }
 
@@ -267,6 +321,7 @@ input::placeholder{
     color: #000 !important;
 }
 
+<<<<<<< HEAD
 input:focus{
     background-color: #DCEBEE !important;
     outline: none;
@@ -305,3 +360,72 @@ input:not(:placeholder-shown){
     margin-left: 6rem;
     display: none;
 }
+=======
+.Personal.Information input:not(:placeholder-shown){
+    background-color: #a9e6d9 !important;
+}
+
+@media screen and (max-width: 590px){
+    :root{
+        --gap-info: 20px;
+    }
+    .Information{
+        justify-content: unset;
+        gap: var(--gap-info);
+    }
+}
+
+@media screen and (max-width: 428px){
+    .section-flex.regis2{
+        margin-top: 40px;
+    }
+
+    .page1{
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .page2{
+        margin-bottom: -60px;
+    }
+
+    .header{
+        margin-top: 20px;
+        margin-bottom: 0;
+    }
+
+    .Information{
+        margin-top: 30px;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 390px){
+    .section-flex.regis2{
+        margin-top: 30px;
+    }
+
+    .header{
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 375px){
+    :root{
+        --gap-info: 10px;
+    }
+    .wrap #next, .wrap #prev{
+        height: 50px;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .Information{
+        margin-top: 20px;
+    }
+}
+
+
+
+>>>>>>> 882f42d (Update CSS and HTML)

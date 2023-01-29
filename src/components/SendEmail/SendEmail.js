@@ -22,7 +22,11 @@ const SendEmail = () => {
     }
 
     async function BackStep(){
+<<<<<<< HEAD
         history.push('/signin');
+=======
+        history.push('/');
+>>>>>>> 882f42d (Update CSS and HTML)
     }
 
     return (

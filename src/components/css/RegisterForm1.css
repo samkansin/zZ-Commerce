@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Import Font */
 
 @font-face {
@@ -49,17 +50,54 @@
 }
 
 .container-con {
+=======
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --light-green: #B8D6DC;
+    --extra-light-green: #DAE8EC;
+    --green: #5FC7AC;
+    --input-pass: #a9e6d9;
+    --light-gray: #EFF1F4;
+    --bg-light-green: #F4F7F9;
+    --gray: #8A8787;
+    --alert: #DD4949;
+
+    --input-height: 70px;
+    --btn-google: 81px;
+    --icon-google: 30px;
+    
+    --section-top: 8vh;
+
+}
+
+
+
+.section {
+>>>>>>> 882f42d (Update CSS and HTML)
     height: 100%;
     display: flex;
     justify-content: center;
 }
 
+<<<<<<< HEAD
 .col-lg-5 {
     height: 70%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin-top: 10vh;
+=======
+.section-flex{
+    max-width: 610px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: var(--section-top);
+>>>>>>> 882f42d (Update CSS and HTML)
 }
 
 @media screen and (max-width: 1800px) {
@@ -77,6 +115,7 @@ p {
     text-align: center;
 }
 
+<<<<<<< HEAD
 .form-group {
     height: 81px;
     border-radius: 8px;
@@ -124,6 +163,49 @@ p {
 
 .alternative {
     display: flex;
+=======
+.btn-signUp{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-green);
+    height: var(--btn-google);
+    border-radius: 8px;
+    text-decoration: none;
+    color: black;
+    margin: 10px 0;
+    font-size: clamp(16px, 2.5vw, 18px);
+
+}
+
+.btn-signUp:hover{
+    background-color: var(--green);
+    color: white;
+    transition: 0.2s ease-in-out;
+}
+
+.btn-signUp .icon-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    background-color: #ffff;
+    border-radius: 50%;
+    width: calc(var(--icon-google) + 5px);
+    height: calc(var(--icon-google) + 5px);
+    border: 3px solid #fff;
+}
+
+.btn-signUp .icon-img svg {
+    font-size: var(--icon-google);
+}
+
+
+.alternative {
+    display: flex;
+    margin: 10px 0;
+>>>>>>> 882f42d (Update CSS and HTML)
     align-items: center;
 }
 
@@ -147,6 +229,7 @@ p {
     margin-bottom: 15px;
 }
 
+<<<<<<< HEAD
 input {
     width: 100%;
     height: 70px;
@@ -184,12 +267,41 @@ input:required:valid {
 
 input:required:invalid:not(:placeholder-shown) {
     background-color: rgba(248, 187, 187, 0.867)
+=======
+.input input {
+    width: 100%;
+    height: var(--input-height);
+}
+
+.input input[type="email"] {
+    font-size: clamp(16px, 2.5vw, 18px);
+}
+
+.input input[type="password"] {
+    font-size: clamp(16px, 2.5vw, 18px);
+}
+
+.section-flex .input input[type="email"]:required:invalid{
+    background-color: rgba(248, 187, 187, 0.867);
+}
+
+.section-flex .input input[type="email"]:required:valid{
+    background-color: var(--input-pass) !important;
+}
+
+#confirmPassword:not(:placeholder-shown){
+    background-color: var(--input-pass) !important;
+>>>>>>> 882f42d (Update CSS and HTML)
 }
 
 .submit {
     border: none;
     display: flex;
+<<<<<<< HEAD
     height: 70px;
+=======
+    height: var(--input-height);
+>>>>>>> 882f42d (Update CSS and HTML)
     background-color: var(--green);
     border-radius: 8px;
     justify-content: center;
@@ -208,6 +320,7 @@ input:required:invalid:not(:placeholder-shown) {
     transition: 0.2s ease-out;
 }
 
+<<<<<<< HEAD
 .error {
     display: none;
     justify-content: center;
@@ -220,6 +333,37 @@ input:required:invalid:not(:placeholder-shown) {
 .error span {
     align-self: center;
     margin: 20px 20px;
+=======
+.error.active{
+    opacity: 1;
+    transition: .2s ease;
+}
+
+.error.hidden{
+    display: none;
+}
+
+.error{
+    opacity: 0;
+    padding: 10px 30px;
+    background-color: #FBEBEB;
+    border-radius: 5px;
+    border: 3px solid #E37575;
+    margin-bottom: 30px;
+    transition: .2s ease;
+}
+
+#errorSpan .icon::before{
+    margin-right: 10px;
+    content: '\f057';
+    font-family: FontAwesome;
+    font-size: 1.5rem;
+}
+
+.error #errorSpan{
+    display: flex;
+    align-items: center;
+>>>>>>> 882f42d (Update CSS and HTML)
     font-family: SFCompactSemi;
     font-size: clamp(18px, 0.2vw, 20px);
     color: #dd4949;
@@ -235,6 +379,7 @@ input:required:invalid:not(:placeholder-shown) {
     font-size: clamp(14px, 2.5vw, 18px);
 }
 
+<<<<<<< HEAD
 .check {
     width: 18px;
     height: 18px;
@@ -250,6 +395,14 @@ input:required:invalid:not(:placeholder-shown) {
     margin-top: 2.5vh;
     font-size: clamp(14px, 2.5vw, 18px);
 }
+=======
+
+.checkmark{
+    background: var(--green) url(http://www.clker.com/cliparts/d/y/5/L/2/m/white-check-mark.svg.hi.png) center/2000% no-repeat;
+    transition: .2s ease;
+}
+
+>>>>>>> 882f42d (Update CSS and HTML)
 
 .createAccount:hover {
     color: #83cab4;
@@ -261,6 +414,7 @@ input:required:invalid:not(:placeholder-shown) {
     justify-content: flex-start;
 }
 
+<<<<<<< HEAD
 .normalText {
     text-align: left;
     text-decoration: none;
@@ -290,6 +444,11 @@ input:required:invalid:not(:placeholder-shown) {
 
 .account:hover {
     color: #079569;
+=======
+
+.account:hover {
+    color: var(--green);
+>>>>>>> 882f42d (Update CSS and HTML)
     text-decoration: none;
 }
 
@@ -302,6 +461,7 @@ input:required:invalid:not(:placeholder-shown) {
     margin-top: 1.3vh;
 }
 
+<<<<<<< HEAD
 .form-check {
     display: flex;
     justify-content: center;
@@ -332,3 +492,174 @@ input:required:invalid:not(:placeholder-shown) {
     margin-left: 6rem;
     display: none;
 }
+=======
+.form{
+    position: relative;
+}
+
+#show-password{
+    position: absolute;
+    right: 20px;
+    top: 35%;
+    cursor: pointer;
+}
+
+.information.active{
+    opacity: 1;
+    transition: .2s ease;
+}
+
+.information.hidden{
+    display: none;
+}
+
+.information{
+    display: flex;
+    opacity: 0;
+    box-shadow: 0 5px 10px rgba(0,0,0,.15);
+    flex-direction: column;
+    background-color: #FBEBEB;
+    border: solid 3px #E37575;
+    border-radius: 10px;
+    color: var(--alert);
+    gap: 10px;
+    transition: .2s ease-in-out;
+    padding: 1.5rem;
+}
+
+.information.pass{
+    border-color: var(--green);
+    background-color: var(--bg-light-green);
+}
+
+.information li.complete .iconCheck::before{
+    content: '';
+    transition: .1s ease;
+}
+
+input.not-pass{
+    background-color: #FBEBEB; 
+}
+
+input.pass{
+    background-color: var(--input-pass) !important; 
+}
+
+.information li.complete{
+    color: var(--green);;
+    transition: .1s ease;
+}
+
+.information span ~ span{
+    font-size: 20px;
+    margin-left: 5px;
+    font-family: 'SFCompactMed';
+}
+
+.iconCheck::before{
+    content: '';
+    font-family: FontAwesome;
+    font-size: 20px;
+    transition: .1s ease;
+}
+
+#show-password svg{
+    font-size: 20px;
+}
+
+@media screen and (max-width: 428px){
+
+
+    .error{
+        padding: 5px 20px;
+    }
+}
+
+@media screen and (max-width: 390px){
+
+    :root{
+        --input-height: 50px;
+        --btn-google: 60px;
+        --icon-google: 20px;
+    }
+
+    .alternative{
+        margin: 5px 0;
+    }
+
+    .information{
+        position: absolute;
+        left: 7%;
+    }
+
+    .iconCheck::before{
+        font-size: 16px;
+    }
+
+    .information span ~ span{
+        font-size: 16px;
+    }
+
+    .error{
+        padding: 5px 20px;
+    }
+
+    #errorSpan .icon::before{
+        margin-right: 15px;
+    }
+
+    .error-access-limit{
+        padding: 0;
+    }
+
+    #errorSpan span{
+        font-size: 15px;
+    }
+
+}
+
+.login-email.Error, .login-password.Error{
+    border: solid 3px #E37575 !important;
+    background-color: #FBEBEB !important;
+}
+
+
+.login-email:not(:placeholder-shown), .login-password:not(:placeholder-shown){
+    background-color: var(--input-pass) !important;
+}
+
+@media screen and (max-width: 320px){
+
+    :root{
+        --section-top: 5vh;
+        --btn-google: 55px;
+    }
+
+    .btn-signUp{
+        margin: 5px 0;
+    }
+
+    .alternative{
+        margin: 0;
+    }
+
+    .alternative span{
+        margin: 15px 20px;
+    }
+
+    .head {
+        margin-bottom: 5px !important;
+    }
+
+    .head p{
+        margin-bottom: 10px;
+    }
+
+    .information{
+        left: 5px;
+    }
+
+
+}
+
+>>>>>>> 882f42d (Update CSS and HTML)

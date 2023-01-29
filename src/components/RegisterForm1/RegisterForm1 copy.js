@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+import '../css/original.css'
 import '../css/RegisterForm1.css';
 import React, {useState, useEffect} from 'react'
 import { useHistory } from 'react-router-dom';
@@ -10,25 +10,6 @@ import { getDatabase, ref, set, child, get } from "firebase/database";
 import {ToastContainer,toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
-=======
-import '../css/original.css'
-import '../css/RegisterForm1.css';
-import React, {useState, useEffect} from 'react'
-import { useHistory } from 'react-router-dom';
-import fontawesome from '@fortawesome/fontawesome'
-import { FcGoogle } from "react-icons/fc";
-import '../../../node_modules/font-awesome/css/font-awesome.min.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons'
-import { faCircleXmark, faCircleCheck } from '@fortawesome/free-solid-svg-icons'
-import firebaseConfig from '../config';
-import { signInWithPopup, GoogleAuthProvider, getAuth, createUserWithEmailAndPassword} from "firebase/auth";
-import {ToastContainer,toast} from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
-
-fontawesome.library.add(faEye, faEyeSlash, faCircleXmark, faCircleCheck)
-
->>>>>>> 882f42d (Update CSS and HTML)
 //Toast Notification
 const empty = () => toast.warn("Must enter Email, Password and Confirm Password.", {
     position: "top-center",
@@ -69,57 +50,8 @@ const notMatchPass = () => toast.warn("Invalid Password, Password and Confirm Pa
 
 const RegisterForm1 = () => {
     const [currentUser, setCurrentUser] = useState(null);
-<<<<<<< HEAD
     const auth = getAuth(firebaseConfig);
     const history = useHistory();
-=======
-    const [password, setIconPassword] = useState('eye');
-    const [con_password, setIconConPassword] = useState('eye');
-    const auth = getAuth(firebaseConfig);
-    const history = useHistory();
-    var controlInfo;
-
-
-    useEffect(() => {
-        let pass_word = document.querySelector('#password');
-        let information = document.querySelector('.information');
-        pass_word.addEventListener('focus', () =>{
-            information.classList.remove('hidden');
-            setTimeout(function(){
-                information.classList.add('active');
-            }, 200)
-        })
-
-        pass_word.addEventListener('blur', () =>{
-            information.classList.remove('active');
-            setTimeout(function(){
-                information.classList.add('hidden');
-            }, 200)
-        })
-
-        const alpha = /^(?=.*[a-z]{2,})/;
-        const uppercase = /^(?=.*[A-Z])/;
-        const number = /^(?=.*[0-9]{2,})/;
-        const lenght = /^(?=.{6,12}$)/
-        pass_word.addEventListener('keyup', () => {
-
-            if(!pass_word.classList.contains('not-pass')) pass_word.classList.add('not-pass');
-
-            if(alpha.test(pass_word.value)) information.children[0].classList.add('complete'); else information.children[0].classList.remove('complete');
-            if(uppercase.test(pass_word.value)) information.children[1].classList.add('complete'); else information.children[1].classList.remove('complete');
-            if(number.test(pass_word.value)) information.children[2].classList.add('complete'); else information.children[2].classList.remove('complete');
-            if(lenght.test(pass_word.value)) information.children[3].classList.add('complete'); else information.children[3].classList.remove('complete');
-
-            if (document.querySelectorAll('.complete').length == 4){
-                information.classList.add('pass');
-                pass_word.classList.add('pass');
-            } else{
-                information.classList.remove('pass');
-                pass_word.classList.remove('pass');
-            }
-        })
-    }, []);
->>>>>>> 882f42d (Update CSS and HTML)
 
     const handleSubmit = async (e) => {
         e.preventDefault();     // Prevent default submit
@@ -179,43 +111,12 @@ const RegisterForm1 = () => {
         }
     }
 
-<<<<<<< HEAD
     return (
         <div className="container">
             <div className="navBar"></div>
+
             <div className="container-con">
                 <div className="col-lg-5">
-=======
-
-
-    function show_password(keyword){
-        let pass = document.querySelector('#password');
-        let con = document.querySelector('#confirmPassword');
-        let temp = pass;
-        let setIcon = setIconPassword;
-        let check = password;
-
-        if(keyword == 'con'){
-            temp = con;
-            setIcon = setIconConPassword;
-            check = con_password;
-        }
-        console.log();
-
-        if(check == 'eye-slash'){
-            setIcon('eye');
-            temp.setAttribute('type', 'password');
-        }else {
-            setIcon('eye-slash')
-            temp.setAttribute('type', 'text');
-        }
-    }
-
-    return (
-        <div className="container">
-            <div className="section">
-                <div className="section-flex">
->>>>>>> 882f42d (Update CSS and HTML)
                     <div className="head">
                             <p>Get started for free</p>
                     </div>
@@ -233,42 +134,14 @@ const RegisterForm1 = () => {
                         <div className="line"></div>
                     </div>
                     
-<<<<<<< HEAD
                     <div className="input Email form">
-                        <div className="tool">Enter your Email</div>
                         <input type="email" name="email" placeholder="Email" id="email" required/>
                     </div>
                     <div className='input Pass form'>
-                        <div className="tool">Must be 6-20 character, at least 2 a-z, 1 A-Z, 2 0-9 and can contain !@#$%^&*</div>
                         <input type="password" name="password" placeholder="Password" id="password" required/>
                     </div>
                     <div className='input Pass form'>
-                        <div className="tool">Must be same password as above</div>
                         <input type="password" placeholder="Confirm Password" id="confirmPassword" required/> 
-=======
-                    <div className="input Email form ">
-                        <input type="email" name="email" placeholder="Email" id="email" required/>
-                    </div>
-                    <div className='input Pass form focus: bg-light-gray'>
-                        <input type="password" name="password" placeholder="Password" id="password" maxLength={12} required/>
-                        <div id="show-password">
-                            <FontAwesomeIcon icon={['far', password]} className="pass" onClick={() => show_password('pass')}/>
-                        </div>
-                    </div>
-
-                    <ul className="information hidden">
-                        <li> <span className="iconCheck"></span><span>At least two alphabets</span></li>
-                        <li> <span className="iconCheck"></span><span>At least one uppercase character</span> </li>
-                        <li> <span className="iconCheck"></span><span>At least two numbers</span> </li>
-                        <li> <span className="iconCheck"></span><span>At least 6 - 12 characters</span> </li>
-                    </ul>
-
-                    <div className='input Pass form'>
-                        <input type="password" placeholder="Confirm Password" id="confirmPassword" maxLength={12} required/>
-                        <div id="show-password">
-                            <FontAwesomeIcon icon={['far', con_password]} className="con-pass" onClick={() => show_password('con')}/>
-                        </div>
->>>>>>> 882f42d (Update CSS and HTML)
                     </div>
                     
                     <button className="submit" onClick={handleSubmit}>
@@ -276,11 +149,7 @@ const RegisterForm1 = () => {
                     </button>
                     <ToastContainer/>
 
-<<<<<<< HEAD
                     <a href="/signin" className="account">Do you have an account?</a>
-=======
-                    <a href="/" className="account">Do you have an account?</a>
->>>>>>> 882f42d (Update CSS and HTML)
 
                     <span className="about">
                     Signing up for a NAME account means you agree to the <a href="#">Privacy Policy</a> and <a href="#">Term of Service</a> 

@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import '../css/RegisterForm2.css';
+<<<<<<< HEAD
+=======
+import '../css/original.css'
+>>>>>>> 882f42d (Update CSS and HTML)
 import 'react-toastify/dist/ReactToastify.css';
 import PersonalInfo from "./PersonalInfo";
 import CreditForm from './CreditCard';
@@ -390,22 +394,36 @@ const RegisterForm2 = () => {
 
     return (
         <div className="container">
+<<<<<<< HEAD
             <div className="container-con">
                 <div className="col-lg-5">
+=======
+            <div className="section">
+                <div className="section-flex regis2">
+>>>>>>> 882f42d (Update CSS and HTML)
                     <div className="progress-container">
                         <div className="progress"></div>
                         <div className="circle active"><span className="p one">1</span></div>
                         <div className="circle"><span className="p two">2</span></div>
                         <div className="circle"><span className="p three">3</span></div>
+<<<<<<< HEAD
                         <div className="circle"><span className="p four">4</span></div>
                     </div>
                     <div className='page1'>
+=======
+                    </div>
+                    <div className='page1 page-right page-disable'>
+>>>>>>> 882f42d (Update CSS and HTML)
                         <PersonalInfo/>
                     </div>
                     <div className='page2 page-right page-disable'>
                         <CreditForm/>
                     </div>
+<<<<<<< HEAD
                     <div className='page3 page-right page-disable'>
+=======
+                    <div className='page3'>
+>>>>>>> 882f42d (Update CSS and HTML)
                         <Address/>
                     </div>
                     <div className="btn-set btn-set-page1">
@@ -418,7 +436,11 @@ const RegisterForm2 = () => {
                         </div>
                     </div>
 
+<<<<<<< HEAD
                     <a className="skip skip-hidden">skip</a>
+=======
+                    <a className="skip skip-hidden">Skip</a>
+>>>>>>> 882f42d (Update CSS and HTML)
                 </div>
             </div>
         </div>

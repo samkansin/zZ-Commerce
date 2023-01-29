@@ -6,7 +6,11 @@ import { useHistory } from 'react-router-dom';
 const ForgotPassword_Step2 = ({}) => {
     const history = useHistory();
     const con = () => {
+<<<<<<< HEAD
         history.push('/signin');
+=======
+        history.push('/');
+>>>>>>> 882f42d (Update CSS and HTML)
     }
     return (
         <div className="container1">
