@@ -16,10 +16,6 @@
 }
 
 .wrapper{
-<<<<<<< HEAD
-    min-height: 100vh;
-=======
->>>>>>> 882f42d (Update CSS and HTML)
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -40,11 +36,7 @@
 
 .card-form{
     max-width: 570px;
-<<<<<<< HEAD
-    margin: auto;
-=======
     margin: 45px auto;
->>>>>>> 882f42d (Update CSS and HTML)
     width: 100%;
 }
 
@@ -680,15 +672,4 @@
 
 #cardMonth:required:valid, #cardYear:required:valid{
     background-color: var(--light-gray) !important;
-<<<<<<< HEAD
-}
-
-
-@media screen and (min-width: 700px){
-    position: relative;
-    bottom: auto;
-    right: auto;
-    margin-top: 20px;
-=======
->>>>>>> 882f42d (Update CSS and HTML)
 }

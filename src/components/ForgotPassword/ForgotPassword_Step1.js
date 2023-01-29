@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-import { FiArrowLeft, FiKey } from "react-icons/fi";
-import '../css/ForgotPassword.css';
-=======
 import React, {useState, useEffect} from "react";
 import { FiArrowLeft, FiKey } from "react-icons/fi";
 import '../css/ForgotPassword.css';
@@ -10,16 +5,11 @@ import fontawesome from '@fortawesome/fontawesome'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons'
 import { faCircleXmark, faCircleCheck } from '@fortawesome/free-solid-svg-icons'
->>>>>>> 882f42d (Update CSS and HTML)
 import {ToastContainer,toast} from 'react-toastify';
 import { getAuth, confirmPasswordReset } from "firebase/auth";
 import ForgotPassword_Step2 from "./ForgotPassword_Step2";
 import firebaseConfig from '../config';
 
-<<<<<<< HEAD
-const ForgotPassword_Step1 = () => {
-    const auth = getAuth(firebaseConfig);
-=======
 fontawesome.library.add(faEye, faEyeSlash, faCircleXmark, faCircleCheck)
 
 const ForgotPassword_Step1 = () => {
@@ -67,7 +57,6 @@ const ForgotPassword_Step1 = () => {
         })
     }, []);
 
->>>>>>> 882f42d (Update CSS and HTML)
 
     function nextStep() {
         const password = document.querySelector('#password').value;
@@ -138,8 +127,6 @@ const ForgotPassword_Step1 = () => {
             
         }
     }
-<<<<<<< HEAD
-=======
 
     function show_password(keyword){
         let pass = document.querySelector('#password');
@@ -164,7 +151,6 @@ const ForgotPassword_Step1 = () => {
         }
     }
 
->>>>>>> 882f42d (Update CSS and HTML)
     return (
         <div className="container1">
                 <section className="active">
@@ -181,16 +167,6 @@ const ForgotPassword_Step1 = () => {
                     </div>
                     <div className="fieldInput password">
                         <div className="new-password form">
-<<<<<<< HEAD
-                            <div className="tool">Must be 6-20 character, at least 2 a-z, 1 A-Z, 2 0-9 and can contain !@#$%^&*</div>
-                            <span>Password</span>
-                            <input type="password"  className="form-controler" placeholder="Enter your new password" id="password"/>
-                        </div>
-                        <div className="confirm-password form">
-                            <div className="tool">Must be same password as above</div>
-                            <span>Confirm password</span>
-                            <input type="password"  className="form-controler" placeholder="Enter your new password again" id="con-password"/>
-=======
                             <span>Password</span>
                             <input type="password"  className="form-controler" placeholder="Enter your new password" id="password"/>
                             <div className="show-password" id="show-password">
@@ -211,17 +187,12 @@ const ForgotPassword_Step1 = () => {
                             <div className="show-password" id="show-password">
                                 <FontAwesomeIcon icon={['far', con_password]} className="con-pass" onClick={() => show_password('con')}/>
                             </div>
->>>>>>> 882f42d (Update CSS and HTML)
                         </div>
                     </div>
                     <div className="button">
                             <button className="btn" id="Reset" onClick={nextStep}>Reset password</button>
                     </div>
-<<<<<<< HEAD
-                    <a className="back-step" href="/signin">
-=======
                     <a className="back-step" href="/">
->>>>>>> 882f42d (Update CSS and HTML)
                         <FiArrowLeft size={24}/>
                         <span className="back">Back to log in</span>
                     </a>

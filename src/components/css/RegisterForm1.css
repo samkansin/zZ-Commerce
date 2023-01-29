@@ -1,56 +1,3 @@
-<<<<<<< HEAD
-/* Import Font */
-
-@font-face {
-    font-family: 'SFCompact';
-    src: url(../../font/SF-Compact-Rounded-Regular.ttf);
-    font-style: normal;
-    font-weight: 100;
-}
-
-@font-face {
-    font-family: 'SFCompactMed';
-    src: url(../../font/SF-Compact-Rounded-Medium.ttf);
-    font-style: normal;
-    font-weight: 500;
-}
-
-@font-face {
-    font-family: 'SFCompactSemi';
-    src: url(../../font/SF-Compact-Rounded-Semibold.ttf);
-    font-size: normal;
-    font-weight: 600;
-}
-
-@font-face {
-    font-family: 'SFCompactBold';
-    src: url(../../font/SF-Compact-Rounded-Bold.ttf);
-    font-style: normal;
-    font-weight: 700;
-}
-
-:root {
-    --light-green: #B8D6DC;
-    --green: #5FC7AC;
-    --light-gray: #EFF1F4;
-    --gray: #8A8787;
-}
-
-* {
-    font-family: SFCompact;
-}
-
-#root {
-    height: 1024px;
-}
-
-.container {
-    height: 100%;
-    margin: 0 auto;
-}
-
-.container-con {
-=======
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -76,20 +23,11 @@
 
 
 .section {
->>>>>>> 882f42d (Update CSS and HTML)
     height: 100%;
     display: flex;
     justify-content: center;
 }
 
-<<<<<<< HEAD
-.col-lg-5 {
-    height: 70%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-top: 10vh;
-=======
 .section-flex{
     max-width: 610px;
     width: 100%;
@@ -97,7 +35,6 @@
     display: flex;
     flex-direction: column;
     margin-top: var(--section-top);
->>>>>>> 882f42d (Update CSS and HTML)
 }
 
 @media screen and (max-width: 1800px) {
@@ -115,55 +52,6 @@ p {
     text-align: center;
 }
 
-<<<<<<< HEAD
-.form-group {
-    height: 81px;
-    border-radius: 8px;
-    background-color: var(--light-green);
-}
-
-.form-group:hover {
-    background-color: var(--green);
-    transition: 0.5s ease-in-out;
-}
-
-.form-group a:hover {
-    color: #fff;
-    transition: 0.2s ease-in-out;
-}
-
-.form-group a {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    color: #000;
-}
-
-.icon-img {
-    margin-right: 20px;
-    background-color: #ffff;
-    border-radius: 100%;
-    border: 3px solid #fff;
-}
-
-.icon-img svg {
-    font-size: 30px;
-}
-
-.form-group span {
-    display: grid;
-    font-size: clamp(16px, 2.5vw, 20px);
-    font-family: SFCompactSemi;
-    height: 50px;
-    align-items: center;
-}
-
-.alternative {
-    display: flex;
-=======
 .btn-signUp{
     display: flex;
     flex-direction: row;
@@ -205,7 +93,6 @@ p {
 .alternative {
     display: flex;
     margin: 10px 0;
->>>>>>> 882f42d (Update CSS and HTML)
     align-items: center;
 }
 
@@ -229,45 +116,6 @@ p {
     margin-bottom: 15px;
 }
 
-<<<<<<< HEAD
-input {
-    width: 100%;
-    height: 70px;
-    background-color: var(--light-gray);
-    padding: 20px;
-    border-radius: 8px;
-}
-
-input[type="email"] {
-    font-family: SFCompactSemi;
-    font-size: clamp(16px, 2.5vw, 18px);
-}
-
-input[type="password"] {
-    font-family: SFCompactSemi;
-    font-size: clamp(16px, 2.5vw, 18px);
-}
-
-input::placeholder {
-    font-family: SFCompactSemi;
-    color: #8A8787;
-}
-
-
-/*8ad5c8*/
-
-input:focus {
-    background-color: #DCEBEE;
-    outline: none;
-}
-
-input:required:valid {
-    background-color: #a9e6d9;
-}
-
-input:required:invalid:not(:placeholder-shown) {
-    background-color: rgba(248, 187, 187, 0.867)
-=======
 .input input {
     width: 100%;
     height: var(--input-height);
@@ -291,17 +139,12 @@ input:required:invalid:not(:placeholder-shown) {
 
 #confirmPassword:not(:placeholder-shown){
     background-color: var(--input-pass) !important;
->>>>>>> 882f42d (Update CSS and HTML)
 }
 
 .submit {
     border: none;
     display: flex;
-<<<<<<< HEAD
-    height: 70px;
-=======
     height: var(--input-height);
->>>>>>> 882f42d (Update CSS and HTML)
     background-color: var(--green);
     border-radius: 8px;
     justify-content: center;
@@ -320,20 +163,6 @@ input:required:invalid:not(:placeholder-shown) {
     transition: 0.2s ease-out;
 }
 
-<<<<<<< HEAD
-.error {
-    display: none;
-    justify-content: center;
-    background-color: #FBEBEB;
-    border-radius: 5px;
-    border: 2px solid #FF0000;
-    margin-bottom: 10px;
-}
-
-.error span {
-    align-self: center;
-    margin: 20px 20px;
-=======
 .error.active{
     opacity: 1;
     transition: .2s ease;
@@ -363,7 +192,6 @@ input:required:invalid:not(:placeholder-shown) {
 .error #errorSpan{
     display: flex;
     align-items: center;
->>>>>>> 882f42d (Update CSS and HTML)
     font-family: SFCompactSemi;
     font-size: clamp(18px, 0.2vw, 20px);
     color: #dd4949;
@@ -379,30 +207,12 @@ input:required:invalid:not(:placeholder-shown) {
     font-size: clamp(14px, 2.5vw, 18px);
 }
 
-<<<<<<< HEAD
-.check {
-    width: 18px;
-    height: 18px;
-    margin-right: 5px;
-    margin-left: -22px;
-    background-color: #83cab4;
-}
-
-.createAccount {
-    text-align: left;
-    color: #079569;
-    font-family: SFCompactSemi;
-    margin-top: 2.5vh;
-    font-size: clamp(14px, 2.5vw, 18px);
-}
-=======
 
 .checkmark{
     background: var(--green) url(http://www.clker.com/cliparts/d/y/5/L/2/m/white-check-mark.svg.hi.png) center/2000% no-repeat;
     transition: .2s ease;
 }
 
->>>>>>> 882f42d (Update CSS and HTML)
 
 .createAccount:hover {
     color: #83cab4;
@@ -414,41 +224,9 @@ input:required:invalid:not(:placeholder-shown) {
     justify-content: flex-start;
 }
 
-<<<<<<< HEAD
-.normalText {
-    text-align: left;
-    text-decoration: none;
-    color: black;
-    margin-top: 0.7vh;
-    font-family: SFCompactSemi;
-    font-size: clamp(14px, 2.5vw, 18px);
-}
-
-.normalText:hover {
-    color: #000;
-    text-decoration: none;
-}
-
-.forgotText {
-    text-align: right;
-    color: #079569;
-    font-family: SFCompactSemi;
-    margin-top: 1vh;
-    font-size: clamp(14px, 2.5vw, 18px);
-}
-
-.forgotText:hover {
-    color: #83cab4;
-    text-decoration: none;
-}
-
-.account:hover {
-    color: #079569;
-=======
 
 .account:hover {
     color: var(--green);
->>>>>>> 882f42d (Update CSS and HTML)
     text-decoration: none;
 }
 
@@ -461,38 +239,6 @@ input:required:invalid:not(:placeholder-shown) {
     margin-top: 1.3vh;
 }
 
-<<<<<<< HEAD
-.form-check {
-    display: flex;
-    justify-content: center;
-    margin: 10px;
-}
-
-.navBar {
-    height: 64px;
-}
-
-.col-lg-5 .form:hover .tool{
-    display: flex;
-}
-
-.tool{
-    font-family: SFCompactBold;
-    font-size: 14px !important;
-    padding: 10px;
-    position:absolute;
-    width: auto;
-    border-radius: 10px 10px 10px 0px;
-    background-color: var(--green);
-    color: #fff;
-    margin-top: -10px;
-    transform-style: preserve-3d;
-    z-index: 200;
-    font-size: 0.9rem;
-    margin-left: 6rem;
-    display: none;
-}
-=======
 .form{
     position: relative;
 }
@@ -662,4 +408,3 @@ input.pass{
 
 }
 
->>>>>>> 882f42d (Update CSS and HTML)

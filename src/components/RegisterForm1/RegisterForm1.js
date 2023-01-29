@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-import '../css/RegisterForm1.css';
-import React, {useState, useEffect} from 'react'
-import { useHistory } from 'react-router-dom';
-import { FcGoogle } from "react-icons/fc";
-import firebaseConfig from '../config';
-import { UserAuth } from '../Auth';
-import { signInWithPopup, GoogleAuthProvider, getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { getDatabase, ref, set, child, get } from "firebase/database";
-import {ToastContainer,toast} from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
-
-=======
 import '../css/original.css'
 import '../css/RegisterForm1.css';
 import React, {useState, useEffect} from 'react'
@@ -28,7 +15,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 fontawesome.library.add(faEye, faEyeSlash, faCircleXmark, faCircleCheck)
 
->>>>>>> 882f42d (Update CSS and HTML)
 //Toast Notification
 const empty = () => toast.warn("Must enter Email, Password and Confirm Password.", {
     position: "top-center",
@@ -69,10 +55,6 @@ const notMatchPass = () => toast.warn("Invalid Password, Password and Confirm Pa
 
 const RegisterForm1 = () => {
     const [currentUser, setCurrentUser] = useState(null);
-<<<<<<< HEAD
-    const auth = getAuth(firebaseConfig);
-    const history = useHistory();
-=======
     const [password, setIconPassword] = useState('eye');
     const [con_password, setIconConPassword] = useState('eye');
     const auth = getAuth(firebaseConfig);
@@ -119,7 +101,6 @@ const RegisterForm1 = () => {
             }
         })
     }, []);
->>>>>>> 882f42d (Update CSS and HTML)
 
     const handleSubmit = async (e) => {
         e.preventDefault();     // Prevent default submit
@@ -179,13 +160,6 @@ const RegisterForm1 = () => {
         }
     }
 
-<<<<<<< HEAD
-    return (
-        <div className="container">
-            <div className="navBar"></div>
-            <div className="container-con">
-                <div className="col-lg-5">
-=======
 
 
     function show_password(keyword){
@@ -215,7 +189,6 @@ const RegisterForm1 = () => {
         <div className="container">
             <div className="section">
                 <div className="section-flex">
->>>>>>> 882f42d (Update CSS and HTML)
                     <div className="head">
                             <p>Get started for free</p>
                     </div>
@@ -233,19 +206,6 @@ const RegisterForm1 = () => {
                         <div className="line"></div>
                     </div>
                     
-<<<<<<< HEAD
-                    <div className="input Email form">
-                        <div className="tool">Enter your Email</div>
-                        <input type="email" name="email" placeholder="Email" id="email" required/>
-                    </div>
-                    <div className='input Pass form'>
-                        <div className="tool">Must be 6-20 character, at least 2 a-z, 1 A-Z, 2 0-9 and can contain !@#$%^&*</div>
-                        <input type="password" name="password" placeholder="Password" id="password" required/>
-                    </div>
-                    <div className='input Pass form'>
-                        <div className="tool">Must be same password as above</div>
-                        <input type="password" placeholder="Confirm Password" id="confirmPassword" required/> 
-=======
                     <div className="input Email form ">
                         <input type="email" name="email" placeholder="Email" id="email" required/>
                     </div>
@@ -268,7 +228,6 @@ const RegisterForm1 = () => {
                         <div id="show-password">
                             <FontAwesomeIcon icon={['far', con_password]} className="con-pass" onClick={() => show_password('con')}/>
                         </div>
->>>>>>> 882f42d (Update CSS and HTML)
                     </div>
                     
                     <button className="submit" onClick={handleSubmit}>
@@ -276,11 +235,7 @@ const RegisterForm1 = () => {
                     </button>
                     <ToastContainer/>
 
-<<<<<<< HEAD
-                    <a href="/signin" className="account">Do you have an account?</a>
-=======
                     <a href="/" className="account">Do you have an account?</a>
->>>>>>> 882f42d (Update CSS and HTML)
 
                     <span className="about">
                     Signing up for a NAME account means you agree to the <a href="#">Privacy Policy</a> and <a href="#">Term of Service</a> 
