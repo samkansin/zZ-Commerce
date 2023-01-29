@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Typography,
   Button,
@@ -6,15 +6,14 @@ import {
   CardActions,
   CardContent,
   CardMedia,
-} from "@material-ui/core";
+} from '@material-ui/core';
 
-import useStyles from "./styles";
+import useStyles from './styles';
 
 const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
   const classes = useStyles();
 
-  const handleUpdateCartQty = (lineItemId, newQuantity) =>
-    onUpdateCartQty(lineItemId, newQuantity);
+  const handleUpdateCartQty = (lineItemId, newQuantity) => onUpdateCartQty(lineItemId, newQuantity);
 
   const handleRemoveFromCart = (lineItemId) => onRemoveFromCart(lineItemId);
 
@@ -28,9 +27,7 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
       <CardContent className={classes.cardContent}>
         <Typography variant="h5">{item.name}</Typography>
         <Typography variant="h5">
-          {parseFloat((item.line_total.formatted_with_symbol + "").slice(1)) *
-            30 +
-            " THB"}
+          {`${parseFloat((`${item.line_total.formatted_with_symbol}`).slice(1)) * 30} THB`}
         </Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>

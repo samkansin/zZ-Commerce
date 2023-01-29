@@ -37,11 +37,11 @@
     "semantic-ui-react": "^2.0.1"
   },
   "scripts": {
-    "start": "react-app-rewired --openssl-legacy-provider start",
+    "start": "react-scripts --openssl-legacy-provider start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -60,12 +60,7 @@
     ]
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.21.5",
-    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-config-react-app": "^7.0.1",
     "gh-pages": "^5.0.0",
     "tailwindcss": "^3.2.4",
     "web-vitals": "^3.0.3"

@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CssBaseline } from '@material-ui/core';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  HashRouter,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { AuthProvider } from './components/Auth';
 import {
   Navbar,
@@ -76,10 +71,10 @@ const App = () => {
 
   return (
     <AuthProvider>
-      <HashRouter basename={'/zZ-Commerce'}>
+      <Router>
         <CssBaseline />
         <Switch>
-          <Route exact path='/'>
+          <Route exact path='/zZ-Commerce'>
             <SignIn />
           </Route>
           <Route exact path='/signup'>
@@ -127,7 +122,7 @@ const App = () => {
             <CheckOutHistory />
           </Route>
         </Switch>
-      </HashRouter>
+      </Router>
     </AuthProvider>
   );
 };

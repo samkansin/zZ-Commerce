@@ -6,7 +6,7 @@ import {
   signInWithPopup,
   getAuth,
 } from "firebase/auth";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import firebaseConfig from "../config";
 
@@ -164,12 +164,11 @@ const SignIn = () => {
           </button>
           <div className="registe text-base mt-4 font-semi">
             <span className="">Not registered yet? </span>
-            <a
-              href="/signup"
+            <Link to="/signup"
               className="no-underline text-link-green hover:text-primary-green"
             >
               Create an Account
-            </a>
+            </Link>
           </div>
         </div>
       </div>

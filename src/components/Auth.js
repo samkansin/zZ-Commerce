@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useContext } from "react";
-import firebase from "firebase/compat/app";
-import firebaseConfig from "./config";
+import React, { useState, useEffect, useContext } from 'react';
+import firebase from 'firebase/compat/app';
+import firebaseConfig from './config';
 
 export const AuthContext = React.createContext();
 
@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
 
   const googleSignIn = () => {
-    var provider = new firebase.auth.GoogleAuthProvider();
+    const provider = new firebase.auth.GoogleAuthProvider();
     console.log(provider);
     firebaseConfig.auth().signInWithPopup(provider);
   };
@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
       setCurrentUser(user);
       setLoading(false);
     });
-    console.log("User", currentUser);
+    console.log('User', currentUser);
     return () => {
       unsubscribe();
     };
@@ -39,6 +39,4 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-export const UserAuth = () => {
-  return useContext(AuthContext);
-};
+export const UserAuth = () => useContext(AuthContext);

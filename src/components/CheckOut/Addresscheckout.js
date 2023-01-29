@@ -1,52 +1,43 @@
-import React, { useState, useEffect } from "react";
-import "react-toastify/dist/ReactToastify.css";
-import "../css/Addresscheckout.css";
-import { BiChevronLeft } from "react-icons/bi";
-import { getDatabase, ref, set, child, get } from "firebase/database";
-import { getAuth } from "firebase/auth";
-import { useHistory } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import thaiProvince from "../Province.json";
-import thaiAddress from "../Address.json";
-import { commerce } from "../../lib/commerce";
+import React, { useEffect } from 'react';
+import 'react-toastify/dist/ReactToastify.css';
+import '../css/Addresscheckout.css';
+import { BiChevronLeft } from 'react-icons/bi';
+import { getDatabase, ref, set, child, get } from 'firebase/database';
+import { getAuth } from 'firebase/auth';
+import { useHistory } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import thaiProvince from '../Province.json';
+import thaiAddress from '../Address.json';
 
 const Addresscheckout = ({ refreshCart, cart, products }) => {
-  const [cartId, setCartId] = useState(null);
-
-  var districtID = [];
-  var subDistrictID = [];
+  let districtID = [];
+  let subDistrictID = [];
 
   const selectProvince = () => {
     districtID = [];
     subDistrictID = [];
-    const province = document.querySelector("#province");
-    const district = document.querySelector("#district");
-    const subDistrict = document.querySelector("#sub_district");
-    const postalCode = document.querySelector("#postalCode");
+    const province = document.querySelector('#province');
+    const district = document.querySelector('#district');
+    const subDistrict = document.querySelector('#sub_district');
+    const postalCode = document.querySelector('#postalCode');
 
-    province.classList.add("selected");
+    province.classList.add('selected');
     district.innerHTML = '<option value="" disabled selected>District</option>';
-    subDistrict.innerHTML =
-      '<option value="" disabled selected>Sub-district</option>';
-    postalCode.value = "";
+    subDistrict.innerHTML = '<option value="" disabled selected>Sub-district</option>';
+    postalCode.value = '';
 
-    if (district.classList.contains("selected")) {
-      district.classList.remove("selected");
-      if (subDistrict.classList.contains("selected")) {
-        subDistrict.classList.remove("selected");
+    if (district.classList.contains('selected')) {
+      district.classList.remove('selected');
+      if (subDistrict.classList.contains('selected')) {
+        subDistrict.classList.remove('selected');
       }
     }
 
-    if (province.value != "") {
-      for (var i = 0; i < thaiAddress.length; i++) {
-        if (thaiAddress[i].province == province.value) {
+    if (province.value !== '') {
+      for (let i = 0; i < thaiAddress.length; i += 1) {
+        if (thaiAddress[i].province === province.value) {
           if (!districtID.includes(thaiAddress[i].amphoe_code)) {
-            district.innerHTML +=
-              '<option value="' +
-              thaiAddress[i].amphoe +
-              '">' +
-              thaiAddress[i].amphoe +
-              "</option>";
+            district.innerHTML += `<option value=${thaiAddress[i].amphoe}>${thaiAddress[i].amphoe}</option>`;
             districtID.push(thaiAddress[i].amphoe_code);
           }
         }
@@ -55,33 +46,24 @@ const Addresscheckout = ({ refreshCart, cart, products }) => {
   };
 
   const selectDistrict = () => {
-    const province = document.querySelector("#province");
-    const district = document.querySelector("#district");
-    const subDistrict = document.querySelector("#sub_district");
-    const postalCode = document.querySelector("#postalCode");
+    const province = document.querySelector('#province');
+    const district = document.querySelector('#district');
+    const subDistrict = document.querySelector('#sub_district');
+    const postalCode = document.querySelector('#postalCode');
 
-    district.classList.add("selected");
-    subDistrict.innerHTML =
-      '<option value="" disabled selected>Sub-district</option>';
-    postalCode.value = "";
+    district.classList.add('selected');
+    subDistrict.innerHTML = '<option value="" disabled selected>Sub-district</option>';
+    postalCode.value = '';
 
-    if (subDistrict.classList.contains("selected")) {
-      subDistrict.classList.remove("selected");
+    if (subDistrict.classList.contains('selected')) {
+      subDistrict.classList.remove('selected');
     }
 
-    if (district != "") {
-      for (var i = 0; i < thaiAddress.length; i++) {
-        if (
-          thaiAddress[i].province == province.value &&
-          thaiAddress[i].amphoe == district.value
-        ) {
+    if (district !== '') {
+      for (let i = 0; i < thaiAddress.length; i += 1) {
+        if (thaiAddress[i].province === province.value && thaiAddress[i].amphoe === district.value) {
           if (!subDistrictID.includes(thaiAddress[i].district_code)) {
-            subDistrict.innerHTML +=
-              '<option value="' +
-              thaiAddress[i].district +
-              '">' +
-              thaiAddress[i].district +
-              "</option>";
+            subDistrict.innerHTML += `<option value=${thaiAddress[i].district}>${thaiAddress[i].district}</option>`;
             subDistrictID.push(thaiAddress[i].district_code);
           }
         }
@@ -90,19 +72,16 @@ const Addresscheckout = ({ refreshCart, cart, products }) => {
   };
 
   const selectSubDistrict = () => {
-    const province = document.querySelector("#province");
-    const district = document.querySelector("#district");
-    const subDistrict = document.querySelector("#sub_district");
-    const postalCode = document.querySelector("#postalCode");
+    const province = document.querySelector('#province');
+    const district = document.querySelector('#district');
+    const subDistrict = document.querySelector('#sub_district');
+    const postalCode = document.querySelector('#postalCode');
 
-    subDistrict.classList.add("selected");
-    postalCode.value = "";
+    subDistrict.classList.add('selected');
+    postalCode.value = '';
 
-    for (var i = 0; i < thaiAddress.length; i++) {
-      if (
-        thaiAddress[i].province == province.value &&
-        thaiAddress[i].amphoe == district.value &&
-        thaiAddress[i].district == subDistrict.value
+    for (let i = 0; i < thaiAddress.length; i += 1) {
+      if (thaiAddress[i].province === province.value && thaiAddress[i].amphoe === district.value && thaiAddress[i].district === subDistrict.value
       ) {
         postalCode.value = thaiAddress[i].zipcode;
       }
@@ -113,71 +92,50 @@ const Addresscheckout = ({ refreshCart, cart, products }) => {
   const user = auth.currentUser; // get current user authentication
 
   const db = getDatabase(); // get database
-  const uid = user.uid; // get current user id
+  const { uid } = user; // get current user id
 
   const history = useHistory(); // use to redirect
-
-  function delay(time) {
-    return new Promise((resolve) => setTimeout(resolve, time));
-  }
 
   get(child(ref(db), `addressInfo/${uid}`))
     .then((snapshot) => {
       // might change the directory to shippingAddress
       if (snapshot.exists()) {
-        const province = document.querySelector("#province");
-        const district = document.querySelector("#district");
-        const subDistrict = document.querySelector("#sub_district");
+        const province = document.querySelector('#province');
+        const district = document.querySelector('#district');
+        const subDistrict = document.querySelector('#sub_district');
 
-        document.querySelector("#address").value = snapshot.val().address;
-        document.querySelector("#road").value = snapshot.val().road;
+        document.querySelector('#address').value = snapshot.val().address;
+        document.querySelector('#road').value = snapshot.val().road;
 
         province.value = snapshot.val().province;
-        province.classList.add("selected");
-        district.innerHTML =
-          '<option value="" disabled selected>District</option>';
-        subDistrict.innerHTML =
-          '<option value="" disabled selected>Sub-district</option>';
-        for (var i = 0; i < thaiAddress.length; i++) {
-          if (thaiAddress[i].province == province.value) {
+        province.classList.add('selected');
+        district.innerHTML = '<option value="" disabled selected>District</option>';
+        subDistrict.innerHTML = '<option value="" disabled selected>Sub-district</option>';
+        for (let i = 0; i < thaiAddress.length; i += 1) {
+          if (thaiAddress[i].province === province.value) {
             if (!districtID.includes(thaiAddress[i].amphoe_code)) {
-              district.innerHTML +=
-                '<option value="' +
-                thaiAddress[i].amphoe +
-                '">' +
-                thaiAddress[i].amphoe +
-                "</option>";
+              district.innerHTML += `<option value=${thaiAddress[i].amphoe}>${thaiAddress[i].amphoe}</option>`;
               districtID.push(thaiAddress[i].amphoe_code);
             }
           }
         }
 
         district.value = snapshot.val().district;
-        district.classList.add("selected");
-        subDistrict.innerHTML =
-          '<option value="" disabled selected>Sub-district</option>';
-        for (var i = 0; i < thaiAddress.length; i++) {
-          if (
-            thaiAddress[i].province == province.value &&
-            thaiAddress[i].amphoe == district.value
-          ) {
+        district.classList.add('selected');
+        subDistrict.innerHTML = '<option value="" disabled selected>Sub-district</option>';
+        for (let i = 0; i < thaiAddress.length; i += 1) {
+          if (thaiAddress[i].province === province.value && thaiAddress[i].amphoe === district.value) {
             if (!subDistrictID.includes(thaiAddress[i].district_code)) {
-              subDistrict.innerHTML +=
-                '<option value="' +
-                thaiAddress[i].district +
-                '">' +
-                thaiAddress[i].district +
-                "</option>";
+              subDistrict.innerHTML += `<option value=${thaiAddress[i].district}>${thaiAddress[i].district}</option>`;
               subDistrictID.push(thaiAddress[i].district_code);
             }
           }
         }
 
         subDistrict.value = snapshot.val().subDistrict;
-        subDistrict.classList.add("selected");
+        subDistrict.classList.add('selected');
 
-        document.querySelector("#postalCode").value = snapshot.val().postalCode;
-      } else {
+        document.querySelector('#postalCode').value = snapshot.val().postalCode;
       }
     })
     .catch((error) => {
@@ -189,10 +147,8 @@ const Addresscheckout = ({ refreshCart, cart, products }) => {
       // might change the directory to shippingAddress
       if (snapshot.exists()) {
         // example
-        document.querySelector("#fullname").value = snapshot.val().fullName;
-        document.querySelector("#phoneNumber").value =
-          snapshot.val().phoneNumber;
-      } else {
+        document.querySelector('#fullname').value = snapshot.val().fullName;
+        document.querySelector('#phoneNumber').value = snapshot.val().phoneNumber;
       }
     })
     .catch((error) => {
@@ -200,27 +156,18 @@ const Addresscheckout = ({ refreshCart, cart, products }) => {
     });
 
   const handleSubmit = () => {
-    const fullName = document.querySelector("#fullname").value;
-    const phoneNumber = document.querySelector("#phoneNumber").value;
-    const address = document.querySelector("#address").value;
-    const road = document.querySelector("#road").value;
-    const postalCode = document.querySelector("#postalCode").value;
-    const subDistrict = document.querySelector("#sub_district").value;
-    const district = document.querySelector("#district").value;
-    const province = document.querySelector("#province").value;
+    const fullName = document.querySelector('#fullname').value;
+    const phoneNumber = document.querySelector('#phoneNumber').value;
+    const address = document.querySelector('#address').value;
+    const road = document.querySelector('#road').value;
+    const postalCode = document.querySelector('#postalCode').value;
+    const subDistrict = document.querySelector('#sub_district').value;
+    const district = document.querySelector('#district').value;
+    const province = document.querySelector('#province').value;
 
-    if (
-      fullName == "" ||
-      phoneNumber == "" ||
-      address == "" ||
-      road == "" ||
-      postalCode == "" ||
-      subDistrict == "" ||
-      district == "" ||
-      province == ""
-    ) {
-      toast.warn("All information must be filled", {
-        position: "top-center",
+    if (fullName === '' || phoneNumber === '' || address === '' || road === '' || postalCode === '' || subDistrict === '' || district === '' || province === '') {
+      toast.warn('All information must be filled', {
+        position: 'top-center',
         autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -228,9 +175,9 @@ const Addresscheckout = ({ refreshCart, cart, products }) => {
         draggable: true,
         progress: undefined,
       });
-    } else if (/(^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$)/.test(fullName) != true) {
-      toast.warn("Invalid name", {
-        position: "top-center",
+    } else if (/(^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$)/.test(fullName) !== true) {
+      toast.warn('Invalid name', {
+        position: 'top-center',
         autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -238,13 +185,9 @@ const Addresscheckout = ({ refreshCart, cart, products }) => {
         draggable: true,
         progress: undefined,
       });
-    } else if (
-      /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(
-        phoneNumber
-      ) != true
-    ) {
-      toast.warn("Invalid phone number", {
-        position: "top-center",
+    } else if (/^[(]?[0-9]{3}[)]?[-\s]?[0-9]{3}[-\s]?[0-9]{4,6}$/im.test(phoneNumber) !== true) {
+      toast.warn('Invalid phone number', {
+        position: 'top-center',
         autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -255,50 +198,40 @@ const Addresscheckout = ({ refreshCart, cart, products }) => {
     } else {
       try {
         // write data in firebase's realtime database
-        set(ref(db, "addressInfo/" + uid), {
-          address: address,
-          road: road,
-          subDistrict: subDistrict,
-          district: district,
-          province: province,
-          postalCode: postalCode,
+        set(ref(db, `addressInfo/${uid}`), {
+          address,
+          road,
+          subDistrict,
+          district,
+          province,
+          postalCode,
         });
 
-        var today = new Date();
-        var dd = String(today.getDate()).padStart(2, "0");
-        var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-        var yyyy = today.getFullYear();
+        let today = new Date();
+        const dd = String(today.getDate()).padStart(2, '0');
+        const mm = String(today.getMonth() + 1).padStart(2, '0'); /* January is 0! */
+        const yyyy = today.getFullYear();
 
-        today = mm + "/" + dd + "/" + yyyy;
+        today = `${mm}/${dd}/${yyyy}`;
 
         if (cart.id) {
-          set(ref(db, "transaction/" + uid + "/" + cart.id.slice(5)), {
+          set(ref(db, `transaction/${uid}/${cart.id.slice(5)}`), {
             date: today,
           });
           // keep transaction info
           cart.line_items.forEach((ele) => {
             products.forEach((product) => {
-              if (product.id == ele.product_id) {
-                const description = product.description;
-                //alert(description.slice(10, -11));
-
+              if (product.id === ele.product_id) {
+                const { description } = product;
                 set(
-                  ref(
-                    db,
-                    "transaction/" +
-                      uid +
-                      "/" +
-                      cart.id.slice(5) +
-                      "/" +
-                      ele.product_id.slice(5)
-                  ),
+                  ref(db, `transaction/${uid}/${cart.id.slice(5)}/${ele.product_id.slice(5)}}`),
                   {
                     name: ele.product_name,
                     description: description.slice(10, -11),
                     picture: product.media.source,
                     quantity: ele.quantity,
                     total: ele.line_total.raw * 30,
-                  }
+                  },
                 );
               }
             });
@@ -308,26 +241,21 @@ const Addresscheckout = ({ refreshCart, cart, products }) => {
         alert(error);
       }
       refreshCart();
-      history.push("/shop");
+      history.push('/shop');
     }
   };
 
   useEffect(() => {
-    const province = document.querySelector("#province");
+    const province = document.querySelector('#province');
     province.innerHTML = '<option value="" disabled selected>Province</option>';
-    for (var i = 0; i < thaiProvince.length; i++) {
-      province.innerHTML +=
-        '<option value="' +
-        thaiProvince[i] +
-        '">' +
-        thaiProvince[i] +
-        "</option>";
+    for (let i = 0; i < thaiProvince.length; i += 1) {
+      province.innerHTML += `<option value=${thaiProvince[i]}>${thaiProvince[i]}</option>`;
     }
   }, []);
 
   return (
     <div className="main">
-      <div className="navbar"></div>
+      <div className="navbar"> </div>
       <div className="container2">
         <div className="outer">
           <a href="/cart" className="back">
@@ -430,12 +358,7 @@ const Addresscheckout = ({ refreshCart, cart, products }) => {
               <div className="province form">
                 <div className="tool">Select your province</div>
                 <span className="title">Province</span>
-                <select
-                  className="form-controler"
-                  id="province"
-                  placeholder="Province"
-                  onChange={selectProvince}
-                ></select>
+                <select className="form-controler" id="province" placeholder="Province" onChange={selectProvince}> </select>
               </div>
 
               <div className="postal form">
@@ -451,9 +374,7 @@ const Addresscheckout = ({ refreshCart, cart, products }) => {
             </div>
 
             <div className="buttonA-check">
-              <button className="btn" id="next" onClick={handleSubmit}>
-                Next
-              </button>
+              <button type="button" className="btn" id="next" onClick={handleSubmit}>Next</button>
             </div>
             <ToastContainer />
           </div>

@@ -1,9 +1,9 @@
-import React from "react";
-import { Container, Typography, Button, Grid } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Container, Typography, Button, Grid } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
-import CartItem from "./CartItem/CartItem";
-import useStyles from "./styles";
+import CartItem from './CartItem/CartItem';
+import useStyles from './styles';
 
 const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
   const classes = useStyles();
@@ -20,7 +20,7 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
     </Typography>
   );
 
-  if (!cart.line_items) return "Loading";
+  if (!cart.line_items) return 'Loading';
 
   const renderCart = () => (
     <>
@@ -37,10 +37,10 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
       </Grid>
       <div className={classes.cardDetails}>
         <Typography variant="h4">
-          Subtotal:{" "}
-          {parseFloat((cart.subtotal.formatted_with_symbol + "").slice(1)) *
-            30 +
-            " THB"}
+          Subtotal:{' '}
+          {`${
+            parseFloat(`${cart.subtotal.formatted_with_symbol}`.slice(1)) * 30
+          } THB`}
         </Typography>
         <div>
           <Button
