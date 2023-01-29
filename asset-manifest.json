@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/zZ-Commerce/static/css/main.d70480fb.css",
+    "main.js": "/zZ-Commerce/static/js/main.08a682f9.js",
+    "static/js/496.aa8b9626.chunk.js": "/zZ-Commerce/static/js/496.aa8b9626.chunk.js",
+    "static/media/SF-Compact-Rounded-Medium.ttf": "/zZ-Commerce/static/media/SF-Compact-Rounded-Medium.462131b018ac04b24043.ttf",
+    "static/media/SF-Compact-Rounded-Bold.ttf": "/zZ-Commerce/static/media/SF-Compact-Rounded-Bold.671ce927d921b905db5b.ttf",
+    "static/media/SF-Compact-Rounded-Semibold.ttf": "/zZ-Commerce/static/media/SF-Compact-Rounded-Semibold.c169e3ffae25d1db7790.ttf",
+    "static/media/SF-Compact-Rounded-Regular.ttf": "/zZ-Commerce/static/media/SF-Compact-Rounded-Regular.3e9a80bfed2a97a23c6f.ttf",
+    "static/media/fontawesome-webfont.svg?v=4.7.0": "/zZ-Commerce/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
+    "static/media/fontawesome-webfont.eot": "/zZ-Commerce/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
+    "static/media/fontawesome-webfont.ttf?v=4.7.0": "/zZ-Commerce/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
+    "static/media/fontawesome-webfont.woff?v=4.7.0": "/zZ-Commerce/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
+    "static/media/fontawesome-webfont.woff2?v=4.7.0": "/zZ-Commerce/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
+    "static/media/commerce.png": "/zZ-Commerce/static/media/commerce.457bea4f142b5443dec4.png",
+    "static/media/user.png": "/zZ-Commerce/static/media/user.44ea40a3eb8dd7fed2a9.png",
+    "index.html": "/zZ-Commerce/index.html",
+    "main.d70480fb.css.map": "/zZ-Commerce/static/css/main.d70480fb.css.map",
+    "main.08a682f9.js.map": "/zZ-Commerce/static/js/main.08a682f9.js.map",
+    "496.aa8b9626.chunk.js.map": "/zZ-Commerce/static/js/496.aa8b9626.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d70480fb.css",
+    "static/js/main.08a682f9.js"
+  ]
+}
