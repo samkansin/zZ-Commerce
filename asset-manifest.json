@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/zZ-Commerce/static/css/main.d70480fb.css",
-    "main.js": "/zZ-Commerce/static/js/main.5b47096c.js",
+    "main.js": "/zZ-Commerce/static/js/main.9bc5c6d6.js",
     "static/js/496.aa8b9626.chunk.js": "/zZ-Commerce/static/js/496.aa8b9626.chunk.js",
     "static/media/SF-Compact-Rounded-Medium.ttf": "/zZ-Commerce/static/media/SF-Compact-Rounded-Medium.462131b018ac04b24043.ttf",
     "static/media/SF-Compact-Rounded-Bold.ttf": "/zZ-Commerce/static/media/SF-Compact-Rounded-Bold.671ce927d921b905db5b.ttf",
@@ -16,11 +16,11 @@
     "static/media/user.png": "/zZ-Commerce/static/media/user.44ea40a3eb8dd7fed2a9.png",
     "index.html": "/zZ-Commerce/index.html",
     "main.d70480fb.css.map": "/zZ-Commerce/static/css/main.d70480fb.css.map",
-    "main.5b47096c.js.map": "/zZ-Commerce/static/js/main.5b47096c.js.map",
+    "main.9bc5c6d6.js.map": "/zZ-Commerce/static/js/main.9bc5c6d6.js.map",
     "496.aa8b9626.chunk.js.map": "/zZ-Commerce/static/js/496.aa8b9626.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d70480fb.css",
-    "static/js/main.5b47096c.js"
+    "static/js/main.9bc5c6d6.js"
   ]
 }
