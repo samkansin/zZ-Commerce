@@ -6,7 +6,7 @@ import { getDatabase, ref, set, child, get } from 'firebase/database';
 import { getAuth } from 'firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import CryptoJS from 'crypto-js';
 import { commerce } from '../../lib/commerce';
 

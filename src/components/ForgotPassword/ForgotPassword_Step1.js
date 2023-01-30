@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { FiArrowLeft, FiKey } from "react-icons/fi";
 import "../css/ForgotPassword.css";
 import fontawesome from "@fortawesome/fontawesome";
