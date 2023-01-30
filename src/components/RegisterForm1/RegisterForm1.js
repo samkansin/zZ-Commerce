@@ -12,6 +12,7 @@ import {
   faCircleCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import firebaseConfig from "../config";
+import { getDatabase, ref, child, get } from "firebase/database";
 import {
   signInWithPopup,
   GoogleAuthProvider,
@@ -75,7 +76,7 @@ const RegisterForm1 = () => {
   const [con_password, setIconConPassword] = useState("eye");
   const auth = getAuth(firebaseConfig);
   const history = useHistory();
-  var controlInfo;
+  const dbRef = ref(getDatabase());
 
   useEffect(() => {
     let pass_word = document.querySelector("#password");
@@ -173,6 +174,12 @@ const RegisterForm1 = () => {
     try {
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
+      setCurrentUser(auth.currentUser)
+      get(child(dbRef, `personalInfo/${currentUser.uid}`)).then((data) => {
+        if(data.exists()){
+          history.push("/shop");
+        }
+      });
       history.push("/personalinfo");
     } catch (error) {
       console.log(error);
