@@ -1,7 +1,7 @@
 import "../css/original.css";
 import "../css/RegisterForm1.css";
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import fontawesome from "@fortawesome/fontawesome";
 import { FcGoogle } from "react-icons/fc";
 import "../../../node_modules/font-awesome/css/font-awesome.min.css";
@@ -295,13 +295,13 @@ const RegisterForm1 = () => {
           </button>
           <ToastContainer />
 
-          <a href="/" className="account">
+          <Link to="/" className="account">
             Do you have an account?
-          </a>
+          </Link>
 
           <span className="about">
             Signing up for a NAME account means you agree to the{" "}
-            <a href="#">Privacy Policy</a> and <a href="#">Term of Service</a>
+            <Link to="#">Privacy Policy</Link> and <Link to="#">Term of Service</Link>
           </span>
         </div>
       </div>

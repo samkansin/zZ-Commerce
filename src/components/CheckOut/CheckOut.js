@@ -453,9 +453,9 @@ const CheckOut = ({ cart }) => {
         <div className='outer'>
           <header className='head-item'>
             <div className='logo'>
-              <a href='#'>
+              <Link to='#'>
                 <strong>.zZ</strong>-Commerce
-              </a>
+              </Link>
             </div>
             <div className='time-left'>
               <time id='time'> 03:00 </time>
@@ -557,9 +557,9 @@ const CheckOut = ({ cart }) => {
                   </li>
                   <li>
                     <span>Product</span>
-                    <a href='/cart' className='products'>
+                    <Link to='/cart' className='products'>
                       Go back to cart
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <span>Vat (7%)</span>

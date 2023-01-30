@@ -237,10 +237,10 @@ const ForgotPassword_Step1 = () => {
             Reset password
           </button>
         </div>
-        <a className="back-step" href="/">
+        <Link className="back-step" to="/">
           <FiArrowLeft size={24} />
           <span className="back">Back to log in</span>
-        </a>
+        </Link>
       </section>
       <section className="hide">
         <div disabled>
