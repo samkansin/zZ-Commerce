@@ -82,23 +82,23 @@ const App = () => {
           <Route exact path='/'>
             <SignIn />
           </Route>
-          <Route exact path='/signup'>
+          <Route path='/signup'>
             <RegisterForm1 />
           </Route>
-          <Route exact path='/forgotpassword'>
+          <Route path='/forgotpassword'>
             <ForgotPassword />
           </Route>
           <Route path='/personalinfo'>
             <RegisterForm2 />
           </Route>
-          <Route exact path='/shop'>
+          <Route path='/shop'>
             <Navbar
               totalItems={cart.total_items}
               handleDrawerToggle={handleDrawerToggle}
             />
             <Products products={products} onAddToCart={handleAddToCart} />
           </Route>
-          <Route exact path='/cart'>
+          <Route path='/cart'>
             <Navbar
               totalItems={cart.total_items}
               handleDrawerToggle={handleDrawerToggle}
@@ -110,20 +110,20 @@ const App = () => {
               onEmptyCart={handleEmptyCart}
             />
           </Route>
-          <Route exact path='/checkout'>
+          <Route path='/checkout'>
             <CheckOut cart={cart} />
           </Route>
-          <Route exact path='/address'>
+          <Route path='/address'>
             <Addresscheckout
               refreshCart={refreshCart}
               cart={cart}
               products={products}
             />
           </Route>
-          <Route exact path='/sendemail'>
+          <Route path='/sendemail'>
             <SendEmail />
           </Route>
-          <Route exact path='/checkouthistory'>
+          <Route path='/checkouthistory'>
             <CheckOutHistory />
           </Route>
         </Switch>
