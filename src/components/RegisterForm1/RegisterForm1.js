@@ -1,33 +1,33 @@
-import "../css/original.css";
-import "../css/RegisterForm1.css";
-import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
-import fontawesome from "@fortawesome/fontawesome";
-import { FcGoogle } from "react-icons/fc";
-import "../../../node_modules/font-awesome/css/font-awesome.min.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
+import '../css/original.css';
+import '../css/RegisterForm1.css';
+import React, { useState, useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import fontawesome from '@fortawesome/fontawesome';
+import { FcGoogle } from 'react-icons/fc';
+import '../../../node_modules/font-awesome/css/font-awesome.min.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
 import {
   faCircleXmark,
   faCircleCheck,
-} from "@fortawesome/free-solid-svg-icons";
-import firebaseConfig from "../config";
-import { getDatabase, ref, child, get } from "firebase/database";
+} from '@fortawesome/free-solid-svg-icons';
+import firebaseConfig from '../config';
+import { getDatabase, ref, child, get } from 'firebase/database';
 import {
   signInWithPopup,
   GoogleAuthProvider,
   getAuth,
   createUserWithEmailAndPassword,
-} from "firebase/auth";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+} from 'firebase/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 fontawesome.library.add(faEye, faEyeSlash, faCircleXmark, faCircleCheck);
 
 //Toast Notification
 const empty = () =>
-  toast.warn("Must enter Email, Password and Confirm Password.", {
-    position: "top-center",
+  toast.warn('Must enter Email, Password and Confirm Password.', {
+    position: 'top-center',
     autoClose: 1000,
     hideProgressBar: false,
     closeOnClick: true,
@@ -36,8 +36,8 @@ const empty = () =>
     progress: undefined,
   });
 const invalidEmail = () =>
-  toast.warn("Invalid Email.", {
-    position: "top-center",
+  toast.warn('Invalid Email.', {
+    position: 'top-center',
     autoClose: 1000,
     hideProgressBar: false,
     closeOnClick: true,
@@ -47,10 +47,10 @@ const invalidEmail = () =>
   });
 const invalidPass = () =>
   toast.warn(
-    "Invalid Password, Password must contain at least 2 alphabet, 2 number and have lenght between 6-12.",
+    'Invalid Password, Password must contain at least 2 alphabet, 2 number and have lenght between 6-12.',
     {
       // รหัสผ่านต้องเป็นภาษาอังกฤษและมี 6-12 ตัว มีอักษร 2 ตัวขึ้นไป ตัวพิมพ์ใหญ่อย่างน้อย 1 ตัว และมีตัวเลขอย่างน้อย 2 ตัว
-      position: "top-center",
+      position: 'top-center',
       autoClose: 1000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -60,8 +60,8 @@ const invalidPass = () =>
     }
   );
 const notMatchPass = () =>
-  toast.warn("Invalid Password, Password and Confirm Password must match.", {
-    position: "top-center",
+  toast.warn('Invalid Password, Password and Confirm Password must match.', {
+    position: 'top-center',
     autoClose: 1000,
     hideProgressBar: false,
     closeOnClick: true,
@@ -72,26 +72,26 @@ const notMatchPass = () =>
 
 const RegisterForm1 = () => {
   const [currentUser, setCurrentUser] = useState(null);
-  const [password, setIconPassword] = useState("eye");
-  const [con_password, setIconConPassword] = useState("eye");
+  const [password, setIconPassword] = useState('eye');
+  const [con_password, setIconConPassword] = useState('eye');
   const auth = getAuth(firebaseConfig);
   const history = useHistory();
   const dbRef = ref(getDatabase());
 
   useEffect(() => {
-    let pass_word = document.querySelector("#password");
-    let information = document.querySelector(".information");
-    pass_word.addEventListener("focus", () => {
-      information.classList.remove("hidden");
+    let pass_word = document.querySelector('#password');
+    let information = document.querySelector('.information');
+    pass_word.addEventListener('focus', () => {
+      information.classList.remove('hidden');
       setTimeout(function () {
-        information.classList.add("active");
+        information.classList.add('active');
       }, 200);
     });
 
-    pass_word.addEventListener("blur", () => {
-      information.classList.remove("active");
+    pass_word.addEventListener('blur', () => {
+      information.classList.remove('active');
       setTimeout(function () {
-        information.classList.add("hidden");
+        information.classList.add('hidden');
       }, 200);
     });
 
@@ -99,29 +99,29 @@ const RegisterForm1 = () => {
     const uppercase = /^(?=.*[A-Z])/;
     const number = /^(?=.*[0-9]{2,})/;
     const lenght = /^(?=.{6,12}$)/;
-    pass_word.addEventListener("keyup", () => {
-      if (!pass_word.classList.contains("not-pass"))
-        pass_word.classList.add("not-pass");
+    pass_word.addEventListener('keyup', () => {
+      if (!pass_word.classList.contains('not-pass'))
+        pass_word.classList.add('not-pass');
 
       if (alpha.test(pass_word.value))
-        information.children[0].classList.add("complete");
-      else information.children[0].classList.remove("complete");
+        information.children[0].classList.add('complete');
+      else information.children[0].classList.remove('complete');
       if (uppercase.test(pass_word.value))
-        information.children[1].classList.add("complete");
-      else information.children[1].classList.remove("complete");
+        information.children[1].classList.add('complete');
+      else information.children[1].classList.remove('complete');
       if (number.test(pass_word.value))
-        information.children[2].classList.add("complete");
-      else information.children[2].classList.remove("complete");
+        information.children[2].classList.add('complete');
+      else information.children[2].classList.remove('complete');
       if (lenght.test(pass_word.value))
-        information.children[3].classList.add("complete");
-      else information.children[3].classList.remove("complete");
+        information.children[3].classList.add('complete');
+      else information.children[3].classList.remove('complete');
 
-      if (document.querySelectorAll(".complete").length == 4) {
-        information.classList.add("pass");
-        pass_word.classList.add("pass");
+      if (document.querySelectorAll('.complete').length == 4) {
+        information.classList.add('pass');
+        pass_word.classList.add('pass');
       } else {
-        information.classList.remove("pass");
-        pass_word.classList.remove("pass");
+        information.classList.remove('pass');
+        pass_word.classList.remove('pass');
       }
     });
   }, []);
@@ -129,15 +129,15 @@ const RegisterForm1 = () => {
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default submit
 
-    const email = document.querySelector("#email").value;
-    const password = document.querySelector("#password").value;
-    const confirmPassword = document.querySelector("#confirmPassword").value;
+    const email = document.querySelector('#email').value;
+    const password = document.querySelector('#password').value;
+    const confirmPassword = document.querySelector('#confirmPassword').value;
     const valid_email = /^[^@]+@\w+(.\w+)+\w$/;
     const valid_password =
       /^(?=.*[0-9]{2,})(?=.*[A-Z])(?=.*[a-z]{2,})[a-zA-Z0-9!@#$%^&*]{6,12}$/;
     //Validate input
 
-    if (email === "" || password === "" || confirmPassword === "") {
+    if (email === '' || password === '' || confirmPassword === '') {
       empty();
     } else if (valid_email.test(email) != true) {
       invalidEmail();
@@ -151,11 +151,11 @@ const RegisterForm1 = () => {
         createUserWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
             setCurrentUser(true);
-            history.push("/personalinfo");
+            history.push('/personalinfo');
           })
           .catch((error) => {
-            toast.warn("This Email is already exist.", {
-              position: "top-center",
+            toast.warn('This Email is already exist.', {
+              position: 'top-center',
               autoClose: 1000,
               hideProgressBar: false,
               closeOnClick: true,
@@ -174,141 +174,143 @@ const RegisterForm1 = () => {
     try {
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
-      setCurrentUser(auth.currentUser)
-      get(child(dbRef, `personalInfo/${currentUser.uid}`)).then((data) => {
-        if(data.exists()){
-          history.push("/shop");
-        }
-      });
-      history.push("/personalinfo");
+      setCurrentUser(auth.currentUser);
+      // get(child(dbRef, `personalInfo/${auth.currentUser.uid}`)).then((data) => {
+      //   if (data.exists()) {
+      //     history.push('/shop');
+      //   } else {
+      //     history.push('/personalinfo');
+      //   }
+      // });
     } catch (error) {
       console.log(error);
     }
   };
 
   function show_password(keyword) {
-    let pass = document.querySelector("#password");
-    let con = document.querySelector("#confirmPassword");
+    let pass = document.querySelector('#password');
+    let con = document.querySelector('#confirmPassword');
     let temp = pass;
     let setIcon = setIconPassword;
     let check = password;
 
-    if (keyword == "con") {
+    if (keyword == 'con') {
       temp = con;
       setIcon = setIconConPassword;
       check = con_password;
     }
     console.log();
 
-    if (check == "eye-slash") {
-      setIcon("eye");
-      temp.setAttribute("type", "password");
+    if (check == 'eye-slash') {
+      setIcon('eye');
+      temp.setAttribute('type', 'password');
     } else {
-      setIcon("eye-slash");
-      temp.setAttribute("type", "text");
+      setIcon('eye-slash');
+      temp.setAttribute('type', 'text');
     }
   }
 
   return (
-    <div className="container">
-      <div className="section">
-        <div className="section-flex">
-          <div className="head">
+    <div className='container'>
+      <div className='section'>
+        <div className='section-flex'>
+          <div className='head'>
             <p>Get started for free</p>
           </div>
-          <div className="form-group" onClick={handleGoogleSignIn}>
-            <a href="" className="btn-signUp">
-              <div className="icon-img">
+          <div className='form-group' onClick={handleGoogleSignIn}>
+            <a href='' className='btn-signUp'>
+              <div className='icon-img'>
                 <FcGoogle />
               </div>
               <span>Sign Up with Google</span>
             </a>
           </div>
-          <div className="alternative">
-            <div className="line"></div>
+          <div className='alternative'>
+            <div className='line'></div>
             <span>Or</span>
-            <div className="line"></div>
+            <div className='line'></div>
           </div>
 
-          <div className="input Email form ">
+          <div className='input Email form '>
             <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              id="email"
+              type='email'
+              name='email'
+              placeholder='Email'
+              id='email'
               required
             />
           </div>
-          <div className="input Pass form focus: bg-light-gray">
+          <div className='input Pass form focus: bg-light-gray'>
             <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              id="password"
+              type='password'
+              name='password'
+              placeholder='Password'
+              id='password'
               maxLength={12}
               required
             />
-            <div id="show-password">
+            <div id='show-password'>
               <FontAwesomeIcon
-                icon={["far", password]}
-                className="pass"
-                onClick={() => show_password("pass")}
+                icon={['far', password]}
+                className='pass'
+                onClick={() => show_password('pass')}
               />
             </div>
           </div>
 
-          <ul className="information hidden">
+          <ul className='information hidden'>
             <li>
-              {" "}
-              <span className="iconCheck"></span>
+              {' '}
+              <span className='iconCheck'></span>
               <span>At least two alphabets</span>
             </li>
             <li>
-              {" "}
-              <span className="iconCheck"></span>
-              <span>At least one uppercase character</span>{" "}
+              {' '}
+              <span className='iconCheck'></span>
+              <span>At least one uppercase character</span>{' '}
             </li>
             <li>
-              {" "}
-              <span className="iconCheck"></span>
-              <span>At least two numbers</span>{" "}
+              {' '}
+              <span className='iconCheck'></span>
+              <span>At least two numbers</span>{' '}
             </li>
             <li>
-              {" "}
-              <span className="iconCheck"></span>
-              <span>At least 6 - 12 characters</span>{" "}
+              {' '}
+              <span className='iconCheck'></span>
+              <span>At least 6 - 12 characters</span>{' '}
             </li>
           </ul>
 
-          <div className="input Pass form">
+          <div className='input Pass form'>
             <input
-              type="password"
-              placeholder="Confirm Password"
-              id="confirmPassword"
+              type='password'
+              placeholder='Confirm Password'
+              id='confirmPassword'
               maxLength={12}
               required
             />
-            <div id="show-password">
+            <div id='show-password'>
               <FontAwesomeIcon
-                icon={["far", con_password]}
-                className="con-pass"
-                onClick={() => show_password("con")}
+                icon={['far', con_password]}
+                className='con-pass'
+                onClick={() => show_password('con')}
               />
             </div>
           </div>
 
-          <button className="submit" onClick={handleSubmit}>
+          <button className='submit' onClick={handleSubmit}>
             <span>Get Started</span>
           </button>
           <ToastContainer />
 
-          <Link to="/" className="account">
+          <Link to='/' className='account'>
             Do you have an account?
           </Link>
 
-          <span className="about">
-            Signing up for a NAME account means you agree to the{" "}
-            <Link to="#">Privacy Policy</Link> and <Link to="#">Term of Service</Link>
+          <span className='about'>
+            Signing up for a NAME account means you agree to the{' '}
+            <Link to='#'>Privacy Policy</Link> and{' '}
+            <Link to='#'>Term of Service</Link>
           </span>
         </div>
       </div>

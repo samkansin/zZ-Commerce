@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../css/RegisterForm1.css';
 import {
   signInWithEmailAndPassword,
@@ -6,13 +6,16 @@ import {
   signInWithPopup,
   getAuth,
 } from 'firebase/auth';
+import { getDatabase, ref, child, get } from 'firebase/database';
 import { Link, useHistory } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import firebaseConfig from '../config';
 
 const SignIn = () => {
+  const [currentUser, setCurrentUser] = useState(null);
   let count = 4;
   const auth = getAuth(firebaseConfig);
+  const dbRef = ref(getDatabase());
   const history = useHistory();
 
   function get_cookie(name) {
@@ -79,16 +82,26 @@ const SignIn = () => {
     }
   };
 
-  const handleGoogleSignIn = async (e) => {
+  const handleGoogleSignIn = (e) => {
     e.preventDefault();
 
-    try {
-      const provider = new GoogleAuthProvider();
-      await signInWithPopup(auth, provider);
-      history.push('/personalinfo');
-    } catch (error) {
-      console.log(error);
-    }
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        setCurrentUser(auth.currentUser);
+        get(child(dbRef, `personalInfo/${auth.currentUser.uid}`)).then(
+          (data) => {
+            if (data.exists()) {
+              history.push('/shop');
+            } else {
+              history.push('/personalinfo');
+            }
+          }
+        );
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
 
   return (
@@ -153,7 +166,8 @@ const SignIn = () => {
             </label>
             <Link
               to='/sendemail'
-              className='text-base text-link-green no-underline hover:text-primary-green'>
+              className='text-base text-link-green no-underline hover:text-primary-green'
+            >
               Forgot password?
             </Link>
           </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -7,17 +7,17 @@ import {
   MenuItem,
   Menu,
   Typography,
-} from "@material-ui/core";
-import { ShoppingCart } from "@material-ui/icons";
-import { Link, useLocation, useHistory } from "react-router-dom";
-import { Avatar, Box, Divider, Tooltip } from "@material-ui/core";
+} from '@material-ui/core';
+import { ShoppingCart } from '@material-ui/icons';
+import { Link, useLocation, useHistory } from 'react-router-dom';
+import { Avatar, Box, Divider, Tooltip } from '@material-ui/core';
 
-import logo from "../../assets/commerce.png";
-import Uicon from "../../assets/user.png";
-import useStyles from "./styles";
-import { getAuth, signOut } from "firebase/auth";
-import { getDatabase, ref, set, child, get } from "firebase/database";
-import "../css/navbar.css";
+import logo from '../../assets/commerce.png';
+import Uicon from '../../assets/user.png';
+import useStyles from './styles';
+import { getAuth, signOut } from 'firebase/auth';
+import { getDatabase, ref, set, child, get } from 'firebase/database';
+import '../css/navbar.css';
 
 const PrimarySearchAppBar = ({ totalItems }) => {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
@@ -30,20 +30,20 @@ const PrimarySearchAppBar = ({ totalItems }) => {
 
   const handleMobileMenuClose = () => setMobileMoreAnchorEl(null);
 
-  const mobileMenuId = "primary-search-account-menu-mobile";
+  const mobileMenuId = 'primary-search-account-menu-mobile';
 
   const logOut = () => {
     const auth = getAuth();
     signOut(auth)
       .then(() => {
-        console.log("sign out success");
+        console.log('sign out success');
       })
       .catch((error) => {
         // An error happened.
         console.log(error);
       });
     // Go to sign up page
-    history.push("/signin");
+    history.push('/signin');
   };
 
   useEffect(() => {
@@ -68,21 +68,25 @@ const PrimarySearchAppBar = ({ totalItems }) => {
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: "top", horizontal: "right" }}
+      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
       id={mobileMenuId}
       keepMounted
-      transformOrigin={{ vertical: "top", horizontal: "right" }}
+      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
         <IconButton
           component={Link}
-          to="/cart"
-          aria-label="Show cart items"
-          color="inherit"
+          to='/cart'
+          aria-label='Show cart items'
+          color='inherit'
         >
-          <Badge badgeContent={totalItems} color="secondary">
+          <Badge
+            overlap='rectangular'
+            badgeContent={totalItems}
+            color='secondary'
+          >
             <ShoppingCart />
           </Badge>
         </IconButton>
@@ -102,34 +106,33 @@ const PrimarySearchAppBar = ({ totalItems }) => {
 
   return (
     <>
-      <AppBar position="fixed" className={classes.appBar} color="inherit">
+      <AppBar position='fixed' className={classes.appBar} color='inherit'>
         <Toolbar>
           <Typography
             component={Link}
-            to="/shop"
-            variant="h6"
+            to='/shop'
+            variant='h6'
             className={classes.title}
-            color="inherit"
+            color='inherit'
           >
-            <img
-              src={logo}
-              alt="zZ-Commerce"
-              height="25px"
-              className={classes.image}
-            />{" "}
+            <img src={logo} alt='zZ-Commerce' className={classes.image} />{' '}
             zZ-Commerce
           </Typography>
           <div className={classes.grow} />
 
-          {location.pathname === "/shop" && (
+          {location.pathname === '/shop' && (
             <div className={classes.button}>
               <IconButton
                 component={Link}
-                to="/cart"
-                aria-label="Show cart items"
-                color="inherit"
+                to='/cart'
+                aria-label='Show cart items'
+                color='inherit'
               >
-                <Badge badgeContent={totalItems} color="secondary">
+                <Badge
+                  overlap='rectangular'
+                  badgeContent={totalItems}
+                  color='secondary'
+                >
                   <ShoppingCart />
                 </Badge>
               </IconButton>
@@ -137,19 +140,19 @@ const PrimarySearchAppBar = ({ totalItems }) => {
           )}
 
           <Box
-            sx={{ display: "flex", alignItems: "center", textAlign: "center" }}
+            sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}
           >
-            <Tooltip title="Account settings">
+            <Tooltip title='Account settings'>
               <IconButton
                 onClick={handleClick}
-                size="small"
+                size='small'
                 sx={{ ml: 2 }}
-                aria-controls={open ? "account-menu" : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? "true" : undefined}
+                aria-controls={open ? 'account-menu' : undefined}
+                aria-haspopup='true'
+                aria-expanded={open ? 'true' : undefined}
               >
                 <Avatar sx={{ width: 32, height: 32 }}>
-                  <img alt="" src={Uicon} height="20px" />
+                  <img alt='' src={Uicon} height='20px' />
                 </Avatar>
               </IconButton>
             </Tooltip>
@@ -157,14 +160,14 @@ const PrimarySearchAppBar = ({ totalItems }) => {
           <Menu
             className={classes.dropdownMenu}
             anchorEl={anchorEl}
-            id="account-menu"
+            id='account-menu'
             open={open}
             onClose={handleClose}
             onClick={handleClose}
           >
-            <div className="name">user name : {userName}</div>
-            <Divider component="li" sx={{ borderBottomWidth: 4 }} />
-            <MenuItem component={Link} to="/checkouthistory">
+            <div className='name'>user name : {userName}</div>
+            <Divider component='li' sx={{ borderBottomWidth: 4 }} />
+            <MenuItem component={Link} to='/checkouthistory'>
               Checkout History
             </MenuItem>
             <MenuItem onClick={logOut}>Logout</MenuItem>

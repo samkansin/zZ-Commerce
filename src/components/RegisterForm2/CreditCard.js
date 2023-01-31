@@ -263,10 +263,10 @@ const CreditForm = () => {
 
     var num_month = new Date().getMonth() + 1;
     var num_year = new Date().getFullYear();
-    cardYear.innerHTML = '<option value="" disabled selected>YY</option>';
+    cardYear.innerHTML = '<option value="default" disabled>YY</option>';
 
     function setMonth(num_month, year) {
-      cardMonth.innerHTML = '<option value="" disabled selected>MM</option>';
+      cardMonth.innerHTML = '<option value="default" disabled>MM</option>';
       Month.innerHTML = "MM";
       for (var i = 1; i <= 12; i++) {
         var monthstr;
@@ -445,9 +445,10 @@ const CreditForm = () => {
                   id="cardMonth"
                   className="card-input__input select"
                   data-ref="cardDate"
+                  defaultValue="default"
                   required
                 >
-                  <option value="" disabled selected>
+                  <option value="default" disabled>
                     Month
                   </option>
                   {/*use function to append option*/}
@@ -457,9 +458,10 @@ const CreditForm = () => {
                   id="cardYear"
                   className="card-input__input select"
                   data-ref="cardDate"
+                  defaultValue="default"
                   required
                 >
-                  <option value="" disabled selected>
+                  <option value="default" disabled>
                     Year
                   </option>
                   {/*use function to append option*/}
